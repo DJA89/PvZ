@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public GameObject shot;
+    public GameObject shotSpawn;
     float timeToShoot;
     //public AudioClip sound;
 
@@ -24,10 +25,11 @@ public class Shoot : MonoBehaviour
         if (timeToShoot <= 0.0f)
         {
             timeToShoot = 0.5f;
-            GameObject obj = (GameObject)Instantiate(shot, transform.position + new Vector3(-1.5f, 5.6f, 0.0f), transform.rotation);
-            obj.transform.parent = transform;
-            //obj.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().velocity = new Vector3(-10.0f, 0.0f, 0.0f);
-            obj.GetComponent<Rigidbody>().AddForce(-1000.0f, 0.0f, 0.0f);
+            GameObject obj = (GameObject)Instantiate(shot, shotSpawn.transform.position, transform.rotation);
+            Vector3 toLeftBorder = new Vector3(0.0f, 0.0f, obj.GetComponent<Collider>().bounds.size.z);
+            obj.transform.Translate(toLeftBorder);
+            obj.transform.parent = transform; // add as child to current
+            obj.GetComponent<Rigidbody>().AddForce(1000.0f, 0.0f, 0.0f);
             //AudioSource.PlayClipAtPoint(sound, transform.position);
         }
 
