@@ -18,16 +18,18 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         cellRenderer.material.color = Color.red;
 
         // if has no plant already there...
-        //if (KeyNotFoundException plant)
-        // ...spawn a plant!
-        Vector3 plantSpawnPoint = new Vector3(0.0f, 0.0f, -0.75f); // relative to (parent) cell
-        GameObject newPlant = (GameObject)Instantiate(plant1Template, plantSpawnPoint + transform.position, transform.rotation, transform);
-        // divide by absolute (lossy) cell scale (otherwise plant gets squashed)
-        Vector3 newPlantScale = newPlant.transform.localScale;
-        newPlantScale.x /= transform.lossyScale.x;
-        newPlantScale.y /= transform.lossyScale.y;
-        newPlantScale.z /= transform.lossyScale.z;
-        newPlant.transform.localScale = newPlantScale;
+        if (transform.childCount == 0) // no children => cell free
+        {
+            // ...spawn a plant!
+            Vector3 plantSpawnPoint = new Vector3(0.0f, 0.0f, -0.75f); // relative to (parent) cell
+            GameObject newPlant = (GameObject)Instantiate(plant1Template, plantSpawnPoint + transform.position, transform.rotation, transform);
+            // divide by absolute (lossy) cell scale (otherwise plant gets squashed)
+            Vector3 newPlantScale = newPlant.transform.localScale;
+            newPlantScale.x /= transform.lossyScale.x;
+            newPlantScale.y /= transform.lossyScale.y;
+            newPlantScale.z /= transform.lossyScale.z;
+            newPlant.transform.localScale = newPlantScale;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
