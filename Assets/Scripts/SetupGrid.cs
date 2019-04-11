@@ -5,6 +5,7 @@ using UnityEngine;
 public class SetupGrid : MonoBehaviour
 {
     public GameObject fieldCellPrefab;
+    public GameObject cellsParent;
 
     int numberCellsX= 9;
     int numberCellsZ = 5;
@@ -21,8 +22,8 @@ public class SetupGrid : MonoBehaviour
             for (int j = 0; j < numberCellsZ; j++)
             {
                 Vector3 cellPositionInGrid = new Vector3(i * cellSize.x, 0.0f, j * cellSize.z);
-                // as cells are spawned as CHILDREN of the Ground, so they automatically inherit transform from Ground
-                GameObject newCell = (GameObject)Instantiate(fieldCellPrefab, toGroundBottomLeft + cellPositionInGrid + toCellCenter, Quaternion.identity, transform);
+                // as cells are spawned as Grand-CHILDREN of the Ground, so they automatically inherit transform from Ground
+                GameObject newCell = (GameObject)Instantiate(fieldCellPrefab, toGroundBottomLeft + cellPositionInGrid + toCellCenter, Quaternion.identity, cellsParent.transform);
                 newCell.transform.localScale = new Vector3(1.0f / numberCellsX, 0.0f, 1.0f / numberCellsZ);
             }
         }
