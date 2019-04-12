@@ -19,9 +19,10 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         // no children => cell free
         if (transform.childCount == 0) // no children => cell free
         {
+            float transparency = 0.5f;
             // show shadow of plant
             plantShadow = spawnPlant(); // spawn
-            SetRendererAlphas(0.5f, GetComponentsInChildren<Renderer>()); // make semi-transparent
+            SetRendererAlphas(transparency, GetComponentsInChildren<Renderer>()); // make semi-transparent
             plantShadow.GetComponent<Shoot>().enabled = false; // don't shoot
         }
     }
