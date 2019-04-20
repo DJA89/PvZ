@@ -34,7 +34,6 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         if (transform.childCount == 0)
         {
-            print("planting plant");
             // plant the selected plant
             GameObject selectedPlant = SelectionManager.Instance.Selected;
             // if a plant is selected ...
@@ -52,6 +51,8 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 // and move it to top of cell
                 float sizeY = gameObject.GetComponent<Collider>().bounds.size.y;
                 newPlant.transform.position += new Vector3(0.0f, sizeY/2, 0.0f);
+
+                print("planting: " + newPlant);
             }
         }
     }
