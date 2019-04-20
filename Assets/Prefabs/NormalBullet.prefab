@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5801586988639022302}
   - component: {fileID: 5801586988648268254}
   - component: {fileID: 2696550709907293893}
-  - component: {fileID: 4760055458041810212}
+  - component: {fileID: 2858027634684730668}
   m_Layer: 0
   m_Name: NormalBullet
   m_TagString: Untagged
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5801586988641022494}
   m_LocalRotation: {x: 6.4262822e-12, y: 1, z: -0.0000018318508, w: 0.0000035952676}
-  m_LocalPosition: {x: -0.25, y: 2.25, z: -0.24999973}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 02c2b35a44b1a0143b5256158b99cc85, type: 2}
+  - {fileID: 2100000, guid: c77e6999810bc264fba1838786f35ab8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &4760055458041810212
+--- !u!65 &2858027634684730668
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,5 +126,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.500004, y: 0.500002, z: 0.500004}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.000001, y: 1.0000039, z: 1.000006}
+  m_Center: {x: 0.4692305, y: 0.023076996, z: -0.023079991}

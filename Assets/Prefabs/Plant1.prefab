@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 937263720550633416}
-  - component: {fileID: 8864202677849205396}
   - component: {fileID: 937263720554057704}
   - component: {fileID: 937263720553057576}
   - component: {fileID: 937263720560517160}
   - component: {fileID: 6719185417640210613}
+  - component: {fileID: 2151182982992131092}
   m_Layer: 0
   m_Name: Plant1
   m_TagString: Untagged
@@ -36,19 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8864202677849205396
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937263720551125992}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &937263720554057704
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -74,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3dad4dc8f20db424082c8a904ce5806c, type: 2}
+  - {fileID: 2100000, guid: c77e6999810bc264fba1838786f35ab8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,6 +114,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 5801586988641022494, guid: 02bc5494bdd5b584bb412096a7f8fe80, type: 3}
   shotSpawn: {fileID: 6066471185094375721}
+--- !u!65 &2151182982992131092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937263720551125992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.60000294, y: 2.3000007, z: 0.50000197}
+  m_Center: {x: 0.1500005, y: 1.1500003, z: 0.0000040009613}
 --- !u!1 &6066471185094375721
 GameObject:
   m_ObjectHideFlags: 0
