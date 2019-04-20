@@ -706,12 +706,12 @@ PrefabInstance:
     - target: {fileID: 5426693887824693416, guid: 3986b870c92638645b0370a6dcd82427,
         type: 3}
       propertyPath: m_Name
-      value: Plant2Sunflower_Template
+      value: Plant2Sunflower
       objectReference: {fileID: 0}
     - target: {fileID: 750102379262968786, guid: 3986b870c92638645b0370a6dcd82427,
         type: 3}
       propertyPath: m_Name
-      value: Plant1Shooter_Template
+      value: Plant1
       objectReference: {fileID: 0}
     - target: {fileID: 7343317805150110564, guid: 3986b870c92638645b0370a6dcd82427,
         type: 3}

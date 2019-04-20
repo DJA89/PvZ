@@ -42,6 +42,13 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 // ... plant it on this cell
                 newPlant = spawnPlant(selectedPlant);
+                // make non-selectable
+                Destroy(newPlant.GetComponent<SelectPlant>());
+                // enable shooting
+                if (newPlant.GetComponent<Shoot>() != null)
+                {
+                    newPlant.GetComponent<Shoot>().enabled = true;
+                }
                 // and move it to top of cell
                 float sizeY = gameObject.GetComponent<Collider>().bounds.size.y;
                 newPlant.transform.position += new Vector3(0.0f, sizeY/2, 0.0f);

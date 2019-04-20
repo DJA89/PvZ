@@ -47,9 +47,6 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerClick(PointerEventData eventData)
     {
         // create copy to select
-
-        // make non-selectable
-        //Destroy(newPlant.GetComponent<SelectPlant>());
         SelectionManager.Instance.Selected = gameObject;
 
         print("selected: " + gameObject);
