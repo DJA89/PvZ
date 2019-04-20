@@ -5,10 +5,8 @@ using UnityEngine.EventSystems;
 
 public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler
 {
-    //public GameObject plant1Template;
-
-    private GameObject plantDragged;
-    private Transform m_DraggingPlane;
+    //private GameObject plantDragged;
+    //private Transform m_DraggingPlane;
 
     private Renderer cellRenderer;
     private Color cellColor;
@@ -28,7 +26,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         // show tooltip
-
+        // TODO
 
         //cellRenderer = gameObject.GetComponent<Renderer>();
         //cellRenderer.material.color = Color.blue;
@@ -48,7 +46,6 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         // create copy to select
         SelectionManager.Instance.Selected = gameObject;
-
         print("selected: " + gameObject);
 
         //cellRenderer = gameObject.GetComponent<Renderer>();
@@ -68,7 +65,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerExit(PointerEventData eventData)
     {
         // remove tooltip
-
+        // TODO
 
         //// if we have a shadow
         //if (plantShadow != null)
@@ -126,7 +123,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnEndDrag(PointerEventData eventData)
     {
         // ungrey source tile, stop moving plant, place plant
-        Debug.Log("OnEndDrag");
+        //Debug.Log("OnEndDrag");
 
         //cellRenderer = gameObject.GetComponent<Renderer>();
         //cellRenderer.material.color = Color.red;
@@ -159,7 +156,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnBeginDrag(PointerEventData eventData)
     {
         // grey source tile, start moving plant
-        Debug.Log("OnBeginDrag");
+        //Debug.Log("OnBeginDrag");
 
         //cellRenderer = gameObject.GetComponent<Renderer>();
         //cellRenderer.material.color = Color.blue;
@@ -172,7 +169,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnDrag(PointerEventData eventData)
     {
         // move plant
-        Debug.Log("OnDrag");
+        //Debug.Log("OnDrag");
 
         //// if we have a shadow
         //if (plantDragged != null)

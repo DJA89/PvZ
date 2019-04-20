@@ -54,13 +54,6 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 newPlant.transform.position += new Vector3(0.0f, sizeY/2, 0.0f);
             }
         }
-        else
-        {
-            print("removing plant");
-            // remove plant (TODO remove)
-            Destroy(newPlant);
-            newPlant = null;
-        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
