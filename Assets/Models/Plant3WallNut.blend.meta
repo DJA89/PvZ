@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: 26382280d2c76a048a2db7b57b5273c7
+guid: 80a9c1cef271e044299349f818076eef
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: palette_001
-    2100002: palette_005__NormalBullet_png
+    2100000: palette__Plant3WallNut_png
     2300000: //RootNode
     3300000: //RootNode
-    4300000: NormalBullet
+    4300000: Plant3WallNut
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
