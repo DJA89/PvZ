@@ -5,7 +5,6 @@ using UnityEngine;
 public class SetupPlantToolbar : MonoBehaviour
 {
     public GameObject toolbarPlantTemplates;
-    public GameObject toolbarPlantEmpty;
     public GameObject plantsList;
 
     int numberSlotsMaximum = 9;
