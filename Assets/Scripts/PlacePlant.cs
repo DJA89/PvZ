@@ -5,8 +5,6 @@ using UnityEngine.EventSystems;
 
 public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler //, ISelectHandler, IDeselectHandler
 {
-    public GameObject plant1Template;
-    
     private GameObject plantShadow;
     private GameObject newPlant;
 
@@ -36,16 +34,22 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         if (transform.childCount == 0)
         {
+            print("planting plant");
             // plant the selected plant
             GameObject selectedPlant = SelectionManager.Instance.Selected;
+            // if a plant is selected ...
             if (selectedPlant != null)
             {
-                // if a plant is selected
+                // ... plant it on this cell
                 newPlant = spawnPlant(selectedPlant);
+                // and move it to top of cell
+                float sizeY = gameObject.GetComponent<Collider>().bounds.size.y;
+                newPlant.transform.position += new Vector3(0.0f, sizeY/2, 0.0f);
             }
         }
         else
         {
+            print("removing plant");
             // remove plant (TODO remove)
             Destroy(newPlant);
             newPlant = null;

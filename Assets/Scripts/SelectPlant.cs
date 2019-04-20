@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler
 {
-    public GameObject plant1Template;
+    //public GameObject plant1Template;
 
     private GameObject plantDragged;
     private Transform m_DraggingPlane;
@@ -16,7 +16,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -46,8 +46,13 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // select clicked object (current object)
-        SelectionManager.Instance.Selected = plant1Template;
+        // create copy to select
+
+        // make non-selectable
+        //Destroy(newPlant.GetComponent<SelectPlant>());
+        SelectionManager.Instance.Selected = gameObject;
+
+        print("selected: " + gameObject);
 
         //cellRenderer = gameObject.GetComponent<Renderer>();
         //cellRenderer.material.color = Color.red;
@@ -110,7 +115,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private GameObject spawnPlant()
     {
         Vector3 plantSpawnPoint = new Vector3(0.0f, 0.0f, -0.75f); // relative to (parent) cell
-        GameObject newPlant = (GameObject)Instantiate(plant1Template, plantSpawnPoint + transform.position, transform.rotation, transform);
+        GameObject newPlant = (GameObject)Instantiate(gameObject, plantSpawnPoint + transform.position, transform.rotation, transform);
         // divide by absolute (lossy) cell scale (otherwise plant gets squashed)
         Vector3 newPlantScale = newPlant.transform.localScale;
         newPlantScale.x /= transform.lossyScale.x;
