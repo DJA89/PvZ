@@ -79,25 +79,26 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnDrop(PointerEventData eventData)
     {
-        // place plant if cell empty (i.e. only shadow present)
-        if (transform.childCount == 1 && transform.GetChild(0).gameObject == plantShadow)
+        GameObject selectedPlant = SelectionManager.Instance.Selected;
+        // if currently dragging plant (i.e. a plant is selected)
+        if (selectedPlant != null)
         {
-            // remove shadow
-            Destroy(plantShadow);
-            plantShadow = null;
-            // plant the selected plant on this cell
-            GameObject selectedPlant = SelectionManager.Instance.Selected;
-            GameObject newPlant = spawnPlantAsChild(selectedPlant);
-            // remove select script (make non-selectable)
-            Destroy(newPlant.GetComponent<SelectPlant>());
-            // enable shooting (if plant can shoot)
-            if (newPlant.GetComponent<Shoot>() != null)
+            // place plant if cell empty (i.e. only shadow present)
+            if (transform.childCount == 1 && transform.GetChild(0).gameObject == plantShadow)
             {
-                newPlant.GetComponent<Shoot>().enabled = true;
+                // remove shadow
+                Destroy(plantShadow);
+                plantShadow = null;
+                // plant the selected plant on this cell
+                GameObject newPlant = spawnPlantAsChild(selectedPlant);
+                // remove select script (make non-selectable)
+                Destroy(newPlant.GetComponent<SelectPlant>());
+                // enable shooting (if plant can shoot)
+                if (newPlant.GetComponent<Shoot>() != null)
+                {
+                    newPlant.GetComponent<Shoot>().enabled = true;
+                }
             }
-            // remove dragged plant
-            Destroy(SelectionManager.Instance.Selected);
-            SelectionManager.Instance.Selected = null;
         }
     }
 

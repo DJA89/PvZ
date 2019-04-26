@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler
+public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     private float yHeightDraggedObject = 1;
 
@@ -39,8 +39,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // create copy to select
-        //SelectionManager.Instance.Selected =  gameObject;
+        // create copy to select (as child of scene *root*)
         SelectionManager.Instance.Selected = (GameObject)Instantiate(gameObject, transform.position, transform.rotation);
         // dont raycast dragged object
         SelectionManager.Instance.Selected.layer = 2; // Ignore Raycast Layer
@@ -56,5 +55,13 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             SelectionManager.Instance.Selected.transform.position = ray.GetPoint(distance); // distance along the ray
         }
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        // we dropped the plant (drag&drop)
+        // => remove dragged plant
+        Destroy(SelectionManager.Instance.Selected);
+        SelectionManager.Instance.Selected = null;
     }
 }
