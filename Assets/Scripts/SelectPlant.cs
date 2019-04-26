@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler
+public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     //private GameObject plantDragged;
     //private Transform m_DraggingPlane;
@@ -14,7 +14,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -44,22 +44,9 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // create copy to select
-        SelectionManager.Instance.Selected = gameObject;
-        print("selected: " + gameObject);
-
-        //cellRenderer = gameObject.GetComponent<Renderer>();
-        //cellRenderer.material.color = Color.red;
-
-        //// only shadow present?
-        //if (transform.childCount == 1 && transform.GetChild(0).gameObject == plantShadow)
-        //{
-        //    // remove shadow
-        //    Destroy(plantShadow);
-        //    plantShadow = null;
-        //    // spawn real plant
-        //    GameObject newPlant = spawnPlant();
-        //}
+        //// create copy to select
+        //SelectionManager.Instance.Selected = gameObject;
+        //print("selected: " + gameObject);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -73,22 +60,6 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         //    // remove shadow
         //    Destroy(plantShadow);
         //    plantShadow = null;
-        //}
-    }
-
-    public void OnSelect(BaseEventData eventData)
-    {
-        //plantDragged = spawnPlant(); // spawn
-    }
-
-    public void OnDeselect(BaseEventData eventData)
-    {
-        //if (plantDragged != null)
-        //{
-        //    plantDragged.GetComponent<Shoot>().enabled = false; // don't shoot
-        //    //// remove shadow
-        //    //Destroy(plantDragged);
-        //    //plantDragged = null;
         //}
     }
 
@@ -119,22 +90,34 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         return newPlant;
     }
 
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        // create copy to select
+        SelectionManager.Instance.Selected = gameObject;
+        print("started dragging: " + gameObject);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        //move plant
+        Debug.Log("SelectPlant.OnDrag");
+        //print("dragging: " + gameObject);
+
+        //// if we have a shadow
+        //if (plantDragged != null)
+        //{
+        //    SetDraggedPosition(eventData);
+        //}
+    }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // ungrey source tile, stop moving plant, place plant
-        //Debug.Log("OnEndDrag");
+        // stop moving plant
+        //SelectionManager.Instance.Selected = null;
+        Debug.Log("SelectPlant.OnEndDrag");
 
         //cellRenderer = gameObject.GetComponent<Renderer>();
         //cellRenderer.material.color = Color.red;
-
-        //// if we have a dragged object
-        //if (plantDragged != null)
-        //{
-        //    // remove shadow
-        //    Destroy(plantDragged);
-        //    plantDragged = null;
-        //}
     }
 
     private void SetDraggedPosition(PointerEventData data)
@@ -152,30 +135,4 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         //    rt.rotation = m_DraggingPlane.rotation;
         //}
     }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        // grey source tile, start moving plant
-        //Debug.Log("OnBeginDrag");
-
-        //cellRenderer = gameObject.GetComponent<Renderer>();
-        //cellRenderer.material.color = Color.blue;
-
-        //// create dragged copy (no shooting)
-        //GameObject newPlant = spawnPlant();
-        //plantDragged.GetComponent<Shoot>().enabled = false; // don't shoot
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        // move plant
-        //Debug.Log("OnDrag");
-
-        //// if we have a shadow
-        //if (plantDragged != null)
-        //{
-        //    SetDraggedPosition(eventData);
-        //}
-    }
-
 }
