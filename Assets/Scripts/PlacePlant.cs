@@ -7,7 +7,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     private GameObject plantShadow;
 
-    private const float transparency = 0.3f;
+    private const float opacity = 0.5f;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -20,7 +20,8 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 // show shadow of plant
                 plantShadow = spawnPlantAsChild(selectedPlant);
-                SetRendererAlphas(transparency, plantShadow.GetComponentsInChildren<Renderer>()); // make semi-transparent
+                //SetRendererAlphas(opacity, GetComponentsInChildren<Renderer>()); // make semi-transparent
+                plantShadow.GetComponent<Renderer>().material.color -= new Color(0, 0, 0, 1 - opacity);
                 // disable shooting
                 if (plantShadow.GetComponent<Shoot>() != null)
                 {
