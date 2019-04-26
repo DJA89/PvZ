@@ -24,7 +24,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 // show shadow of plant
                 plantShadow = spawnPlantAsChild(selectedPlant);
-                SetRendererAlphas(transparency, GetComponentsInChildren<Renderer>()); // make semi-transparent
+                SetRendererAlphas(transparency, plantShadow.GetComponentsInChildren<Renderer>()); // make semi-transparent
                 // disable shooting
                 if (plantShadow.GetComponent<Shoot>() != null)
                 {
