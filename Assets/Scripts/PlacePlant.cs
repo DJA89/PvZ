@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDropHandler
 {
     private GameObject plantShadow;
-    private GameObject newPlant;
 
     private Renderer cellRenderer;
     private Color cellColor;
@@ -30,6 +29,8 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 {
                     plantShadow.GetComponent<Shoot>().enabled = false;
                 }
+                // dont raycast shadow object
+                plantShadow.layer = 2; // Ignore Raycast Layer
             }
         }
 
@@ -97,7 +98,8 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 newPlant.GetComponent<Shoot>().enabled = true;
             }
-            // clear selection
+            // remove dragged plant
+            Destroy(SelectionManager.Instance.Selected);
             SelectionManager.Instance.Selected = null;
             // debugging info
             print("planting: " + newPlant);

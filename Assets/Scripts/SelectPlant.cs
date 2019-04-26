@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
+public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler
 {
-    //private GameObject plantDragged;
-    //private Transform m_DraggingPlane;
+    private float yHeightDraggedObject = 1;
 
-    private Renderer cellRenderer;
-    private Color cellColor;
+    //private Renderer cellRenderer;
+    //private Color cellColor;
 
     // Start is called before the first frame update
     void Start()
@@ -93,46 +92,23 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnBeginDrag(PointerEventData eventData)
     {
         // create copy to select
-        SelectionManager.Instance.Selected = gameObject;
-        print("started dragging: " + gameObject);
+        //SelectionManager.Instance.Selected =  gameObject;
+        SelectionManager.Instance.Selected = (GameObject)Instantiate(gameObject, transform.position, transform.rotation);
+        // dont raycast dragged object
+        SelectionManager.Instance.Selected.layer = 2; // Ignore Raycast Layer
+
+        //print("started dragging: " + gameObject);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //move plant
-        Debug.Log("SelectPlant.OnDrag");
-        //print("dragging: " + gameObject);
-
-        //// if we have a shadow
-        //if (plantDragged != null)
-        //{
-        //    SetDraggedPosition(eventData);
-        //}
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        // stop moving plant
-        //SelectionManager.Instance.Selected = null;
-        Debug.Log("SelectPlant.OnEndDrag");
-
-        //cellRenderer = gameObject.GetComponent<Renderer>();
-        //cellRenderer.material.color = Color.red;
-    }
-
-    private void SetDraggedPosition(PointerEventData data)
-    {
-        //// adapted from https://docs.unity3d.com/ScriptReference/EventSystems.IDragHandler.html
-        //if (data.pointerEnter != null && data.pointerEnter.transform != null)
-        //    m_DraggingPlane = data.pointerEnter.transform;
-
-        //var rt = plantDragged.transform;
-        //Vector3 globalMousePos;
-        //if (RectTransformUtility.ScreenPointToWorldPointInRectangle(m_DraggingPlane, data.position, data.pressEventCamera, out globalMousePos))
-        //{
-
-        //    rt.position = globalMousePos;
-        //    rt.rotation = m_DraggingPlane.rotation;
-        //}
+        // move plant over dragging plane
+        Plane plane = new Plane(Vector3.up, Vector3.up * yHeightDraggedObject); // dragging plane
+        Ray ray = Camera.main.ScreenPointToRay(eventData.position);
+        float distance; // the distance from the ray origin to the ray intersection of the plane
+        if (plane.Raycast(ray, out distance))
+        {
+            SelectionManager.Instance.Selected.transform.position = ray.GetPoint(distance); // distance along the ray
+        }
     }
 }
