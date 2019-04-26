@@ -11,61 +11,45 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Renderer cellRenderer;
     private Color cellColor;
 
+    private const float transparency = 0.3f;
+
     public void OnPointerEnter(PointerEventData eventData)
     {
+        GameObject selectedPlant = SelectionManager.Instance.Selected;
+        // if currently dragging plant (i.e. a plant is selected)
+        if (selectedPlant != null)
+        {
+            // if cell is free
+            if (transform.childCount == 0)
+            {
+                // show shadow of plant
+                plantShadow = spawnPlantAsChild(selectedPlant);
+                SetRendererAlphas(transparency, GetComponentsInChildren<Renderer>()); // make semi-transparent
+                // disable shooting
+                if (plantShadow.GetComponent<Shoot>() != null)
+                {
+                    plantShadow.GetComponent<Shoot>().enabled = false;
+                }
+            }
+        }
+
         //cellRenderer = gameObject.GetComponent<Renderer>();
         //cellRenderer.material.color = Color.blue;
-
-        //// no children => cell free
-        //if (transform.childCount == 0) // no children => cell free
-        //{
-        //    float transparency = 0.5f;
-        //    // show shadow of plant
-        //    plantShadow = spawnPlant(); // spawn
-        //    SetRendererAlphas(transparency, GetComponentsInChildren<Renderer>()); // make semi-transparent
-        //    plantShadow.GetComponent<Shoot>().enabled = false; // don't shoot
-        //}
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        cellRenderer = gameObject.GetComponent<Renderer>();
-        cellRenderer.material.color = Color.red;
-
-        if (transform.childCount == 0)
-        {
-            // plant the selected plant
-            GameObject selectedPlant = SelectionManager.Instance.Selected;
-            // if a plant is selected ...
-            if (selectedPlant != null)
-            {
-                // ... plant it on this cell
-                newPlant = spawnPlant(selectedPlant);
-                // make non-selectable
-                Destroy(newPlant.GetComponent<SelectPlant>());
-                // enable shooting
-                if (newPlant.GetComponent<Shoot>() != null)
-                {
-                    newPlant.GetComponent<Shoot>().enabled = true;
-                }
-                // and move it to top of cell
-                float sizeY = gameObject.GetComponent<Collider>().bounds.size.y;
-                newPlant.transform.position += new Vector3(0.0f, sizeY/2, 0.0f);
-
-                print("planting: " + newPlant);
-            }
-        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //// if we have a shadow
-        //if (plantShadow != null)
-        //{
-        //    // remove shadow
-        //    Destroy(plantShadow);
-        //    plantShadow = null;
-        //}
+        // if we have a shadow
+        if (plantShadow != null)
+        {
+            // remove shadow
+            Destroy(plantShadow);
+            plantShadow = null;
+        }
     }
 
     private void SetRendererAlphas(float alpha, Renderer[] mRenderers)
@@ -97,12 +81,15 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnDrop(PointerEventData eventData)
     {
-        // place plant
-        if (transform.childCount == 0) // if cell empty
+        // place plant if cell empty (i.e. only shadow present)
+        if (transform.childCount == 1 && transform.GetChild(0).gameObject == plantShadow)
         {
+            // remove shadow
+            Destroy(plantShadow);
+            plantShadow = null;
             // plant the selected plant on this cell
             GameObject selectedPlant = SelectionManager.Instance.Selected;
-            newPlant = spawnPlant(selectedPlant);
+            GameObject newPlant = spawnPlantAsChild(selectedPlant);
             // remove select script (make non-selectable)
             Destroy(newPlant.GetComponent<SelectPlant>());
             // enable shooting (if plant can shoot)
@@ -110,15 +97,14 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 newPlant.GetComponent<Shoot>().enabled = true;
             }
-            // and move it to top of cell
-            float sizeY = gameObject.GetComponent<Collider>().bounds.size.y;
-            newPlant.transform.position += new Vector3(0.0f, sizeY / 2, 0.0f);
-
+            // clear selection
+            SelectionManager.Instance.Selected = null;
+            // debugging info
             print("planting: " + newPlant);
         }
     }
 
-    private GameObject spawnPlant(GameObject template)
+    private GameObject spawnPlantAsChild(GameObject template)
     {
         Vector3 plantSpawnPoint = new Vector3(0.0f, 0.0f, -0.75f); // relative to (parent) cell
         GameObject newPlant = (GameObject)Instantiate(template, plantSpawnPoint + transform.position, transform.rotation, transform);
@@ -128,6 +114,9 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         newPlantScale.y /= transform.lossyScale.y;
         newPlantScale.z /= transform.lossyScale.z;
         newPlant.transform.localScale = newPlantScale;
+        // and move it to top of cell
+        float sizeY = gameObject.GetComponent<Collider>().bounds.size.y;
+        newPlant.transform.position += new Vector3(0.0f, sizeY / 2, 0.0f);
         return newPlant;
     }
 }
