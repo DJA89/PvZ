@@ -3,69 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler //, ISelectHandler, IDeselectHandler
+public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDropHandler
 {
     private GameObject plantShadow;
-    private GameObject newPlant;
 
-    private Renderer cellRenderer;
-    private Color cellColor;
+    private const float transparency = 0.3f;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //cellRenderer = gameObject.GetComponent<Renderer>();
-        //cellRenderer.material.color = Color.blue;
-
-        //// no children => cell free
-        //if (transform.childCount == 0) // no children => cell free
-        //{
-        //    float transparency = 0.5f;
-        //    // show shadow of plant
-        //    plantShadow = spawnPlant(); // spawn
-        //    SetRendererAlphas(transparency, GetComponentsInChildren<Renderer>()); // make semi-transparent
-        //    plantShadow.GetComponent<Shoot>().enabled = false; // don't shoot
-        //}
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        cellRenderer = gameObject.GetComponent<Renderer>();
-        cellRenderer.material.color = Color.red;
-
-        if (transform.childCount == 0)
+        GameObject selectedPlant = SelectionManager.Instance.Selected;
+        // if currently dragging plant (i.e. a plant is selected)
+        if (selectedPlant != null)
         {
-            // plant the selected plant
-            GameObject selectedPlant = SelectionManager.Instance.Selected;
-            // if a plant is selected ...
-            if (selectedPlant != null)
+            // if cell is free
+            if (transform.childCount == 0)
             {
-                // ... plant it on this cell
-                newPlant = spawnPlant(selectedPlant);
-                // make non-selectable
-                Destroy(newPlant.GetComponent<SelectPlant>());
-                // enable shooting
-                if (newPlant.GetComponent<Shoot>() != null)
+                // show shadow of plant
+                plantShadow = spawnPlantAsChild(selectedPlant);
+                SetRendererAlphas(transparency, plantShadow.GetComponentsInChildren<Renderer>()); // make semi-transparent
+                // disable shooting
+                if (plantShadow.GetComponent<Shoot>() != null)
                 {
-                    newPlant.GetComponent<Shoot>().enabled = true;
+                    plantShadow.GetComponent<Shoot>().enabled = false;
                 }
-                // and move it to top of cell
-                float sizeY = gameObject.GetComponent<Collider>().bounds.size.y;
-                newPlant.transform.position += new Vector3(0.0f, sizeY/2, 0.0f);
-
-                print("planting: " + newPlant);
+                // dont raycast shadow object
+                plantShadow.layer = 2; // Ignore Raycast Layer
             }
         }
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        // place selected plant (like onDrop)
+        // TODO
+    }
+
     public void OnPointerExit(PointerEventData eventData)
     {
-        //// if we have a shadow
-        //if (plantShadow != null)
-        //{
-        //    // remove shadow
-        //    Destroy(plantShadow);
-        //    plantShadow = null;
-        //}
+        // if we have a shadow
+        if (plantShadow != null)
+        {
+            // remove shadow
+            Destroy(plantShadow);
+            plantShadow = null;
+        }
     }
 
     private void SetRendererAlphas(float alpha, Renderer[] mRenderers)
@@ -82,18 +63,6 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
     }
 
-    private GameObject spawnPlant(GameObject template)
-    {
-        Vector3 plantSpawnPoint = new Vector3(0.0f, 0.0f, -0.75f); // relative to (parent) cell
-        GameObject newPlant = (GameObject)Instantiate(template, plantSpawnPoint + transform.position, transform.rotation, transform);
-        // divide by absolute (lossy) cell scale (otherwise plant gets squashed)
-        Vector3 newPlantScale = newPlant.transform.localScale;
-        newPlantScale.x /= transform.lossyScale.x;
-        newPlantScale.y /= transform.lossyScale.y;
-        newPlantScale.z /= transform.lossyScale.z;
-        newPlant.transform.localScale = newPlantScale;
-        return newPlant;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -107,13 +76,43 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     }
 
-    //public void OnDeselect(BaseEventData eventData)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+    public void OnDrop(PointerEventData eventData)
+    {
+        // place plant if cell empty (i.e. only shadow present)
+        if (transform.childCount == 1 && transform.GetChild(0).gameObject == plantShadow)
+        {
+            // remove shadow
+            Destroy(plantShadow);
+            plantShadow = null;
+            // plant the selected plant on this cell
+            GameObject selectedPlant = SelectionManager.Instance.Selected;
+            GameObject newPlant = spawnPlantAsChild(selectedPlant);
+            // remove select script (make non-selectable)
+            Destroy(newPlant.GetComponent<SelectPlant>());
+            // enable shooting (if plant can shoot)
+            if (newPlant.GetComponent<Shoot>() != null)
+            {
+                newPlant.GetComponent<Shoot>().enabled = true;
+            }
+            // remove dragged plant
+            Destroy(SelectionManager.Instance.Selected);
+            SelectionManager.Instance.Selected = null;
+        }
+    }
 
-    //public void OnSelect(BaseEventData eventData)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+    private GameObject spawnPlantAsChild(GameObject template)
+    {
+        Vector3 plantSpawnPoint = new Vector3(0.0f, 0.0f, -0.75f); // relative to (parent) cell
+        GameObject newPlant = (GameObject)Instantiate(template, plantSpawnPoint + transform.position, transform.rotation, transform);
+        // divide by absolute (lossy) cell scale (otherwise plant gets squashed)
+        Vector3 newPlantScale = newPlant.transform.localScale;
+        newPlantScale.x /= transform.lossyScale.x;
+        newPlantScale.y /= transform.lossyScale.y;
+        newPlantScale.z /= transform.lossyScale.z;
+        newPlant.transform.localScale = newPlantScale;
+        // and move it to top of cell
+        float sizeY = gameObject.GetComponent<Collider>().bounds.size.y;
+        newPlant.transform.position += new Vector3(0.0f, sizeY / 2, 0.0f);
+        return newPlant;
+    }
 }
