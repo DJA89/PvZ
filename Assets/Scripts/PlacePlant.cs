@@ -7,9 +7,6 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     private GameObject plantShadow;
 
-    private Renderer cellRenderer;
-    private Color cellColor;
-
     private const float transparency = 0.3f;
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -33,13 +30,12 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 plantShadow.layer = 2; // Ignore Raycast Layer
             }
         }
-
-        //cellRenderer = gameObject.GetComponent<Renderer>();
-        //cellRenderer.material.color = Color.blue;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        // place selected plant (like onDrop)
+        // TODO
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -101,8 +97,6 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             // remove dragged plant
             Destroy(SelectionManager.Instance.Selected);
             SelectionManager.Instance.Selected = null;
-            // debugging info
-            print("planting: " + newPlant);
         }
     }
 
