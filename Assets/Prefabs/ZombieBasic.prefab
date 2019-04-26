@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2585456906917760815}
   - component: {fileID: 917550634821590990}
   - component: {fileID: 2310294840901636226}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ZombieBasic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7809777104242646391}
   - component: {fileID: 7908696895421494532}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
