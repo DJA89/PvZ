@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5873338556726338747}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 6240444477386473090}
   - component: {fileID: 7264604990005944309}
   - component: {fileID: 5614980362544874709}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plant1Peashooter
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,8 +141,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.500002, y: 2.7, z: 0.100051}
-  m_Center: {x: 0.25, y: 1.35, z: -0.000001501292}
+  m_Size: {x: 2.500002, y: 2.708658, z: 0.100051}
+  m_Center: {x: 0.25, y: 1.354329, z: -0.000001501292}
 --- !u!114 &5614980362544874709
 MonoBehaviour:
   m_ObjectHideFlags: 0

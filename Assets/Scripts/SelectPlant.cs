@@ -63,5 +63,6 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         // => remove dragged plant
         Destroy(SelectionManager.Instance.Selected);
         SelectionManager.Instance.Selected = null;
+        SelectionManager.Instance.Selected.layer = 9;
     }
 }

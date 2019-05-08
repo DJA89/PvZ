@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2363535460144053970}
   - component: {fileID: 2363535460134753234}
   - component: {fileID: 3234842626495211570}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plant2Sunflower
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
