@@ -98,13 +98,14 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 {
                     newPlant.GetComponent<Shoot>().enabled = true;
                 }
+                newPlant.layer = 9; 
             }
         }
     }
 
     private GameObject spawnPlantAsChild(GameObject template)
     {
-        Vector3 plantSpawnPoint = new Vector3(0.0f, 0.0f, -0.75f); // relative to (parent) cell
+        Vector3 plantSpawnPoint = new Vector3(0.0f, 0.0f, 0); //-0.75f); // relative to (parent) cell
         GameObject newPlant = (GameObject)Instantiate(template, plantSpawnPoint + transform.position, transform.rotation, transform);
         // divide by absolute (lossy) cell scale (otherwise plant gets squashed)
         Vector3 newPlantScale = newPlant.transform.localScale;

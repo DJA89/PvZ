@@ -9,13 +9,15 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
-    public GameObject zombie;
+    public GameObject zombie1;
+    public GameObject zombie2;
     public TextAsset levelFile;
     public Vector3 firstCell;
 
     private Vector3[] cells;
     private int[][] level;
     private int currentLine;
+    private GameObject[] zombies;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,10 @@ public class Spawner : MonoBehaviour
         Vector3 cellDiff = new Vector3(0, 0, 3f);
         cells = new Vector3[5];
         cells[0] = firstCell; // new Vector3(-8f, -2f, -2f);
+        zombies = new GameObject[2];
+        zombies[0] = zombie1;
+        zombies[1] = zombie2;
+        //Se puede agregar un zombie con cabeza de planta que dispare
 
         int i;
         for (i = 1; i < 5; i++)
@@ -55,11 +61,13 @@ public class Spawner : MonoBehaviour
         int currentFrame = Time.frameCount;
         if (currentLine < level.Length && level[currentLine][0] == currentFrame)
         {
+            int currentZombie;
             for (int j = 1; j < 6; j++)
             {
+                currentZombie = level[currentLine][j] - 1;
                 if (level[currentLine][j] != 0)
                 {
-                    GameObject obj = (GameObject)Instantiate(zombie, cells[j-1], transform.rotation);
+                    GameObject obj = (GameObject)Instantiate(zombies[currentZombie], cells[j-1], transform.rotation);
                     obj.transform.parent = transform;
                 }
             }
