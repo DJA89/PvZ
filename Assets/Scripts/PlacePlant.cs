@@ -98,8 +98,11 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 {
                     newPlant.GetComponent<Shoot>().enabled = true;
                 }
-                newPlant.layer = 9;
-                Globals.Instance.SunScore += 10;
+                if (newPlant.GetComponent<SunflowerMakeSun>() != null)
+                {
+                    newPlant.GetComponent<SunflowerMakeSun>().enabled = true;
+                }
+                newPlant.layer = 9; 
             }
         }
     }

@@ -38,6 +38,10 @@ public class SetupPlantToolbar : MonoBehaviour
             {
                 newPlant.GetComponent<Shoot>().enabled = false;
             }
+            if (newPlant.GetComponent<SunflowerMakeSun>() != null)
+            {
+                newPlant.GetComponent<SunflowerMakeSun>().enabled = false;
+            }
             newPlant.AddComponent<SelectPlant>(); // WIP check if working
             //newPlant.GetComponent<SelectPlant>().enabled = true;
 
