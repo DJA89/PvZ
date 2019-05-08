@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1835491297498886592}
   - component: {fileID: 1835491297498886593}
   m_Layer: 0
-  m_Name: Score
+  m_Name: SunCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
