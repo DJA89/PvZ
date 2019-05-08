@@ -11,7 +11,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        GameObject selectedPlant = SelectionManager.Instance.Selected;
+        GameObject selectedPlant = Globals.Instance.SelectedObject;
         // if currently dragging plant (i.e. a plant is selected)
         if (selectedPlant != null)
         {
@@ -79,7 +79,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnDrop(PointerEventData eventData)
     {
-        GameObject selectedPlant = SelectionManager.Instance.Selected;
+        GameObject selectedPlant = Globals.Instance.SelectedObject;
         // if currently dragging plant (i.e. a plant is selected)
         if (selectedPlant != null)
         {
@@ -98,7 +98,8 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 {
                     newPlant.GetComponent<Shoot>().enabled = true;
                 }
-                newPlant.layer = 9; 
+                newPlant.layer = 9;
+                Globals.Instance.SunScore += 10;
             }
         }
     }

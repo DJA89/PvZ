@@ -7,14 +7,15 @@ public class SetupPlantToolbar : MonoBehaviour
     public GameObject toolbarPlantTemplates;
     public GameObject plantsList;
 
-    int numberSlotsMaximum = 9;
+    int numberSlotsMaximum = 8;
 
     // Start is called before the first frame update
     void Start()
     {
         Vector3 toolbarSize = gameObject.GetComponent<Collider>().bounds.size;
         Vector3 toParentFrontLeft = new Vector3(-toolbarSize.x / 2, toolbarSize.y / 2, -toolbarSize.z * 3 / 4);
-        Vector3 cellSize = new Vector3(toolbarSize.x / numberSlotsMaximum, 0.0f, toolbarSize.z);
+        // 1 slot for sun + all plants
+        Vector3 cellSize = new Vector3(toolbarSize.x / (numberSlotsMaximum + 1), 0.0f, toolbarSize.z);
         Vector3 toCellCenter = new Vector3(cellSize.x / 2, 0.0f, cellSize.z / 2);
 
         // scale plantlist so plants templates don't get huge
@@ -27,7 +28,7 @@ public class SetupPlantToolbar : MonoBehaviour
         int plantsInToolbarCount = toolbarPlantTemplates.transform.childCount;
         for (int i = 0; i < plantsInToolbarCount; i++) // only create numberSlotsStarting slots
         {
-            Vector3 cellPositionInGrid = new Vector3(i * cellSize.x, 0.0f, 0.0f);
+            Vector3 cellPositionInGrid = new Vector3((i + 1) * cellSize.x, 0.0f, 0.0f); // i+1 because of sun slot
             // as cells are spawned as Grand-CHILDREN of the Ground, so they automatically inherit transform from Ground
             GameObject newToolbarPlant = toolbarPlantTemplates.transform.GetChild(i).gameObject;
             Vector3 newToolbarPlantPosition = transform.position + toParentFrontLeft + cellPositionInGrid + toCellCenter;
