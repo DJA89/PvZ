@@ -40,9 +40,9 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnBeginDrag(PointerEventData eventData)
     {
         // create copy to select (as child of scene *root*)
-        SelectionManager.Instance.Selected = (GameObject)Instantiate(gameObject, transform.position, transform.rotation);
+        Globals.Instance.SelectedObject = (GameObject)Instantiate(gameObject, transform.position, transform.rotation);
         // dont raycast dragged object
-        SelectionManager.Instance.Selected.layer = 2; // Ignore Raycast Layer
+        Globals.Instance.SelectedObject.layer = 2; // Ignore Raycast Layer
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -53,7 +53,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         float distance; // the distance from the ray origin to the ray intersection of the plane
         if (plane.Raycast(ray, out distance))
         {
-            SelectionManager.Instance.Selected.transform.position = ray.GetPoint(distance); // distance along the ray
+            Globals.Instance.SelectedObject.transform.position = ray.GetPoint(distance); // distance along the ray
         }
     }
 
@@ -61,7 +61,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         // we dropped the plant (drag&drop)
         // => remove dragged plant
-        Destroy(SelectionManager.Instance.Selected);
-        SelectionManager.Instance.Selected = null;
+        Destroy(Globals.Instance.SelectedObject);
+        Globals.Instance.SelectedObject = null;
     }
 }

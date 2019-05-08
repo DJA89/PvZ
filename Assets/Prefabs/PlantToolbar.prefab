@@ -314,15 +314,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6336338432263424196}
     m_Modifications:
-    - target: {fileID: 6190294530002356344, guid: b3e1c96afd929034b926424198c3959f,
-        type: 3}
-      propertyPath: m_Name
-      value: Plant3WallNut
-      objectReference: {fileID: 0}
     - target: {fileID: 6190294530002130008, guid: b3e1c96afd929034b926424198c3959f,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190294530002356344, guid: b3e1c96afd929034b926424198c3959f,
+        type: 3}
+      propertyPath: m_Name
+      value: Plant3WallNut
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3e1c96afd929034b926424198c3959f, type: 3}
