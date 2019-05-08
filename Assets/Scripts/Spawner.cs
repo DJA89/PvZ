@@ -67,7 +67,7 @@ public class Spawner : MonoBehaviour
                 currentZombie = level[currentLine][j] - 1;
                 if (level[currentLine][j] != 0)
                 {
-                    GameObject obj = (GameObject)Instantiate(zombies[currentZombie], cells[j-1], transform.rotation);
+                    GameObject obj = (GameObject)Instantiate(zombies[currentZombie], cells[j-1], transform.rotation, transform);
                     obj.transform.parent = transform;
                 }
             }
