@@ -6,7 +6,7 @@ public class SunSpawner : MonoBehaviour
 {
 
     public GameObject sun;
-    public float rate;
+    private float rate;
     public float startingProbability;
     public Vector3 firstCell;
     private Vector3[,] cells;
@@ -34,6 +34,7 @@ public class SunSpawner : MonoBehaviour
                 cells[k, j] = cells[k, j - 1] + cellDiffHor;
             }
         }
+        rate = 660;
     }
 
     // Update is called once per frame
@@ -44,6 +45,7 @@ public class SunSpawner : MonoBehaviour
         float random = Random.Range(0.0f, 100.0f);
         if (random < currentProbability)
         {
+
             frameCount = 0f;
             Debug.Log(random + " < " + currentProbability);
             int cellMin = Mathf.Min(Random.Range(0, 5), 4);

@@ -587,8 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sun: {fileID: 5083326388367936147, guid: 7f5e6ad76e9b94caaa2f34093c4836c3, type: 3}
-  rate: 600
-  startingProbability: -50
+  startingProbability: -433
   firstCell: {x: -8.25, y: 0, z: -6}
 --- !u!4 &1770554188
 Transform:
