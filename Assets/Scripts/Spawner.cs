@@ -1,41 +1,71 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Reflection;
 using UnityEngine;
+
 
 public class Spawner : MonoBehaviour
 {
 
     public GameObject zombie;
-
-    private float timeSinceLastZombie;
+    public TextAsset levelFile;
     public Vector3 firstCell;
-    public float maxTimeBetweenZombies;
+
+    private Vector3[] cells;
+    private int[][] level;
+    private int currentLine;
+
     // Start is called before the first frame update
     void Start()
     {
-        timeSinceLastZombie = 0.0f;
+        Vector3 cellDiff = new Vector3(0, 0, 3f);
+        cells = new Vector3[5];
+        cells[0] = firstCell; // new Vector3(-8f, -2f, -2f);
+
+        int i;
+        for (i = 1; i < 5; i++)
+        {
+            cells[i] = cells[i - 1] + cellDiff;
+        }
+        string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
+        level = new int[lines.Length][];
+
+        i = 0;
+        int j;
+
+        foreach (string line in lines)
+        {
+            level[i] = new int[6];
+            j = 0;
+            foreach (string data in line.Split(','))
+            {
+                level[i][j] = System.Convert.ToInt32(data);
+                j++;
+            }
+            i++;
+        }
+        currentLine = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 cellDiff = new Vector3(0, 0, 3f);
-        Vector3[] cells = new Vector3[5];
-        cells[0] = firstCell; // new Vector3(-8f, -2f, -2f);
-        for(int i = 1; i < 5; i++)
+        int currentFrame = Time.frameCount;
+        if (currentLine < level.Length && level[currentLine][0] == currentFrame)
         {
-            cells[i] = cells[i-1] + cellDiff;
-        }
-
-
-        timeSinceLastZombie += Time.deltaTime;
-        float probability = Mathf.Min(timeSinceLastZombie / maxTimeBetweenZombies, 1);
-        if (Random.Range(0.0f, 1.0f) < probability)
-        {
-            GameObject obj = (GameObject) Instantiate(zombie, cells[Mathf.Min(Random.Range(0, 5), 4)], transform.rotation);
-            obj.transform.parent = transform;
-            timeSinceLastZombie = 0.0f;
+            for (int j = 1; j < 6; j++)
+            {
+                if (level[currentLine][j] != 0)
+                {
+                    GameObject obj = (GameObject)Instantiate(zombie, cells[j-1], transform.rotation);
+                    obj.transform.parent = transform;
+                }
+            }
+            currentLine++;
         }
 
     }
+
 }
