@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 917550634821590990}
   - component: {fileID: 2310294840901636226}
   - component: {fileID: 6187960477828650096}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ZombieBasic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03b8ccc377c0f468782bd4e8fceea2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   speed: 1
 --- !u!65 &2585456906917760815
 BoxCollider:
@@ -170,8 +170,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6ac8ff0f5301457a91e29f2b2b917cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   zombie: {fileID: 0}
   life: 0
 --- !u!1 &8859782484172673779
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7809777104242646391}
   - component: {fileID: 7908696895421494532}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
