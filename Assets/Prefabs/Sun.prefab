@@ -4797,6 +4797,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5083326388367936146}
   - component: {fileID: 6622731890894832462}
+  - component: {fileID: 5982484672363555437}
   m_Layer: 10
   m_Name: Sun
   m_TagString: Untagged
@@ -4829,5 +4830,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65a4be7ec5fc348f5bd94626d1b836da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5982484672363555437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5083326388367936147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4386aed7394d16b4f8d8f33b51df6b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
