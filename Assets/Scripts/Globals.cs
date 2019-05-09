@@ -11,15 +11,17 @@ public class Globals {
     public GameObject SelectedObject { get; set; }
 
     // get and change sun score
-    public int SunScore { get; set; }
-    //{
-    //    get {
-            
-    //    }
-    //    set {
-
-    //    }
-    //}
+    private int _sunScore = 0;
+    public static readonly int MAX_SCORE = 999;
+    public int SunScore
+    {
+        get {
+            return _sunScore;
+        }
+        set {
+            _sunScore = Mathf.Min(value, MAX_SCORE);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -13,6 +13,8 @@ public class DisplayScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<TextMesh>().text = Globals.Instance.SunScore.ToString();
+        int currentSunScore = Globals.Instance.SunScore;
+        string scoreString = string.Format("{0,3:##0}", currentSunScore);
+        gameObject.GetComponent<TextMesh>().text = scoreString;
     }
 }
