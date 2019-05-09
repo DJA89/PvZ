@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class SetupPlantToolbar : MonoBehaviour
 {
+    public TextAsset plantsConfig;
     public GameObject toolbarPlantTemplates;
     public GameObject plantsList;
 
@@ -12,6 +14,14 @@ public class SetupPlantToolbar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // load plant costs
+        string[] lines = plantsConfig.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
+        int[] plantCosts = new int[lines.Length];
+        for (int i = 0; i < lines.Length; i++){
+            string plantCost = lines[i].Split(',')[1].Trim();
+            plantCosts[i] = System.Convert.ToInt32(plantCost);
+        }
+
         Vector3 toolbarSize = gameObject.GetComponent<Collider>().bounds.size;
         Vector3 toParentFrontLeft = new Vector3(-toolbarSize.x / 2, toolbarSize.y / 2, -toolbarSize.z * 3 / 4);
         // 1 slot for sun + all plants
