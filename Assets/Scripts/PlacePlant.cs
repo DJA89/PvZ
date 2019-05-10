@@ -90,7 +90,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 Destroy(plantShadow);
                 plantShadow = null;
                 // pay price for plant
-                Globals.Instance.SunScore -= 100;
+                Globals.Instance.SunScore -= selectedPlant.GetComponent<PlantVars>().plantPrice;
                 // plant the selected plant on this cell
                 GameObject newPlant = spawnPlantAsChild(selectedPlant);
                 // remove select script (make non-selectable)
