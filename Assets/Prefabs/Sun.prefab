@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4386aed7394d16b4f8d8f33b51df6b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sunValue: 50
 --- !u!198 &5083326387594178698
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4826,7 +4827,7 @@ GameObject:
   - component: {fileID: 3480833475259766066}
   m_Layer: 10
   m_Name: Sun
-  m_TagString: CollectableSun
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
