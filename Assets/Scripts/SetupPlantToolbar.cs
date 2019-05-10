@@ -16,14 +16,6 @@ public class SetupPlantToolbar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // load plant prices
-        string[] lines = plantsConfig.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
-        int[] plantCosts = new int[lines.Length];
-        for (int i = 0; i < lines.Length; i++){
-            string plantCost = lines[i].Split(',')[1].Trim();
-            plantCosts[i] = System.Convert.ToInt32(plantCost);
-        }
-
         Vector3 toolbarSize = toolbarObject.GetComponent<Collider>().bounds.size;
         Vector3 toParentFrontLeft = new Vector3(-toolbarSize.x / 2, toolbarSize.y / 2, -toolbarSize.z * 3 / 4);
         // 1 slot for sun + all plants
@@ -37,15 +29,18 @@ public class SetupPlantToolbar : MonoBehaviour
             Vector3 cellPositionInGrid = new Vector3((i + 1) * cellSize.x, 0.0f, 0.0f); // i+1 because of sun slot
 
             // create new plant
-            GameObject newToolbarPlant = toolbarPlantTemplates.transform.GetChild(i).gameObject;
-            Vector3 newToolbarPlantPosition = transform.position + toParentFrontLeft + cellPositionInGrid + toCellCenter;
-            GameObject newPlant = (GameObject)Instantiate(newToolbarPlant, newToolbarPlantPosition, plantList.transform.rotation, plantList.transform);
+            GameObject plantTemplate = toolbarPlantTemplates.transform.GetChild(i).gameObject;
+            Vector3 newPlantPosition = transform.position + toParentFrontLeft + cellPositionInGrid + toCellCenter;
+            GameObject newPlant = (GameObject)Instantiate(plantTemplate, newPlantPosition, plantList.transform.rotation, plantList.transform);
             // if has shoot script => disable it
             if (newPlant.GetComponent<Shoot>() != null)
             {
                 newPlant.GetComponent<Shoot>().enabled = false;
             }
             newPlant.AddComponent<SelectPlant>();
+            // add price to plant
+            newPlant.AddComponent<PlantVars>();
+            newPlant.GetComponent<PlantVars>().plantPrice = plantTemplate.GetComponent<PlantVars>().plantPrice;
             // unity sometimes doesn't set position, so set localPosition (https://answers.unity.com/questions/225729/gameobject-positionset-not-working.html)
             // also yOffset = 0.001 to prevent z-fighting with ground
             newPlant.transform.localPosition = new Vector3(newPlant.transform.localPosition.x, newPlant.transform.localPosition.y + 0.001f, newPlant.transform.localPosition.z);
@@ -55,6 +50,8 @@ public class SetupPlantToolbar : MonoBehaviour
             float priceTagPositionX = (transform.position + toParentFrontLeft + cellPositionInGrid + toCellCenter).x - 0.8f;
             Vector3 priceTagPosition = priceTagTemplate.transform.position + new Vector3(priceTagPositionX, 0, 0);
             GameObject newPriceTag = (GameObject)Instantiate(priceTagTemplate, priceTagPosition, plantList.transform.rotation, plantList.transform);
+            string priceString = string.Format("{0,3:##0}", newPlant.GetComponent<PlantVars>().plantPrice);
+            newPriceTag.GetComponent<TextMesh>().text = priceString;
         }
     }
 
