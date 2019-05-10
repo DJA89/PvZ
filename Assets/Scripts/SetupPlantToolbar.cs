@@ -5,23 +5,28 @@ using UnityEngine;
 
 public class SetupPlantToolbar : MonoBehaviour
 {
-    public TextAsset plantsConfig;
     public GameObject toolbarObject;
     public GameObject toolbarPlantTemplates;
     public GameObject priceTagTemplates;
     public GameObject plantList;
+    public GameObject sunIcon; // where collected suns fly to
 
     int numberSlotsMaximum = 8;
 
     // Start is called before the first frame update
     void Start()
     {
+        // store sun icon
+        Globals.Instance.SunIcon = sunIcon;
+
+        // setup toolbar and grid
         Vector3 toolbarSize = toolbarObject.GetComponent<Collider>().bounds.size;
         Vector3 toParentFrontLeft = new Vector3(-toolbarSize.x / 2, toolbarSize.y / 2, -toolbarSize.z * 3 / 4);
         // 1 slot for sun + all plants
         Vector3 cellSize = new Vector3(toolbarSize.x / (numberSlotsMaximum + 1), 0.0f, toolbarSize.z);
         Vector3 toCellCenter = new Vector3(cellSize.x / 2, 0.0f, cellSize.z / 2);
         
+        // iterate through grid and place plants
         int plantsInToolbarCount = toolbarPlantTemplates.transform.childCount;
         for (int i = 0; i < plantsInToolbarCount; i++) // only create numberSlotsStarting slots
         {

@@ -23,6 +23,9 @@ public class Globals {
         }
     }
 
+    // sun icon on toolbar: where collected suns fly to
+    public GameObject SunIcon { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
