@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5083326387594178698}
   - component: {fileID: 5083326387594178699}
   - component: {fileID: 5083326387594178692}
-  - component: {fileID: 5083326387594178693}
+  - component: {fileID: 8103482068026513911}
+  - component: {fileID: 5594291743945671125}
   m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
@@ -4771,7 +4772,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.4040493
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5083326387594178693
+--- !u!54 &8103482068026513911
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4785,8 +4786,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &5594291743945671125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5083326387594178697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b143c506e03ea40cf93077f6bd6cc043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5083326388367936147
 GameObject:
   m_ObjectHideFlags: 0
@@ -4797,7 +4810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5083326388367936146}
   - component: {fileID: 6622731890894832462}
-  - component: {fileID: 5982484672363555437}
+  - component: {fileID: 3480833475259766066}
   m_Layer: 10
   m_Name: Sun
   m_TagString: Untagged
@@ -4832,7 +4845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a4be7ec5fc348f5bd94626d1b836da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5982484672363555437
+--- !u!114 &3480833475259766066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

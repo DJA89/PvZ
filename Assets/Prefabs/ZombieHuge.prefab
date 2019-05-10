@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8925554620995569438}
   - component: {fileID: 2383616826050256694}
   - component: {fileID: 8392690646347569518}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ZombieHuge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 781165775945710425}
   - component: {fileID: 4041803935181756420}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

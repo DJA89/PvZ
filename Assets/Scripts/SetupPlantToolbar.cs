@@ -37,10 +37,15 @@ public class SetupPlantToolbar : MonoBehaviour
             {
                 newPlant.GetComponent<Shoot>().enabled = false;
             }
+            if (newPlant.GetComponent<SunflowerMakeSun>() != null)
+            {
+                newPlant.GetComponent<SunflowerMakeSun>().enabled = false;
+            }
             newPlant.AddComponent<SelectPlant>();
             // add price to plant
             newPlant.AddComponent<PlantVars>();
             newPlant.GetComponent<PlantVars>().plantPrice = plantTemplate.GetComponent<PlantVars>().plantPrice;
+            
             // unity sometimes doesn't set position, so set localPosition (https://answers.unity.com/questions/225729/gameobject-positionset-not-working.html)
             // also yOffset = 0.001 to prevent z-fighting with ground
             newPlant.transform.localPosition = new Vector3(newPlant.transform.localPosition.x, newPlant.transform.localPosition.y + 0.001f, newPlant.transform.localPosition.z);
