@@ -5,18 +5,29 @@ using UnityEngine.EventSystems;
 
 public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    private const float opacity = 0.5f;
+    private Color originalColor;
     private float yHeightDraggedObject = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        originalColor = gameObject.GetComponent<Renderer>().material.color;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Globals.Instance.SunScore < gameObject.GetComponent<PlantVars>().plantPrice)
+        {
+            // grey out
+            gameObject.GetComponent<Renderer>().material.color = originalColor / 2;
+        }
+        else
+        {
+            // un-grey out
+            gameObject.GetComponent<Renderer>().material.color = originalColor;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
