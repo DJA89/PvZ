@@ -36,8 +36,8 @@ public class CollectSuns : MonoBehaviour, IPointerClickHandler
         {
             // add sun value to sun score
             Globals.Instance.SunScore += sunValue;
-            // remove collected sun
-            Destroy(gameObject);
+            // remove collected sun (parent of this)
+            Destroy(transform.parent.gameObject);
         }
     }
 }
