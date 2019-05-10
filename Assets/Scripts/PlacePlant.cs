@@ -89,6 +89,8 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 // remove shadow
                 Destroy(plantShadow);
                 plantShadow = null;
+                // pay price for plant
+                Globals.Instance.SunScore -= 100;
                 // plant the selected plant on this cell
                 GameObject newPlant = spawnPlantAsChild(selectedPlant);
                 // remove select script (make non-selectable)
@@ -99,7 +101,6 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     newPlant.GetComponent<Shoot>().enabled = true;
                 }
                 newPlant.layer = 9;
-                Globals.Instance.SunScore += 10;
             }
         }
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2363535460144053970}
   - component: {fileID: 2363535460134753234}
   - component: {fileID: 3234842626495211570}
+  - component: {fileID: 8103666303433978335}
   m_Layer: 9
   m_Name: Plant2Sunflower
   m_TagString: Plant
@@ -111,3 +112,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.7999997, y: 2.6999998, z: 0.10002399}
   m_Center: {x: 0, y: 1.3499999, z: 0.000006001442}
+--- !u!114 &8103666303433978335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363535460142047250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ee6cfc5b1d4d948a8dfbc7d0a22f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantPrice: 50

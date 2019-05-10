@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 883055067563734575}
   - component: {fileID: 7453915036671416091}
   - component: {fileID: 5874468776869252679}
+  - component: {fileID: 7508069068022677990}
   m_Layer: 9
   m_Name: Plant4SnowPea
   m_TagString: Plant
@@ -157,3 +158,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 986482980425715809, guid: 207a9a17979c5f446950396d30c71252, type: 3}
   shotSpawn: {fileID: 147180255347911209}
+--- !u!114 &7508069068022677990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883055067571144175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ee6cfc5b1d4d948a8dfbc7d0a22f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantPrice: 175
