@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDropHandler
+public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     private GameObject plantShadow;
 
@@ -35,8 +35,39 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // place selected plant (like onDrop)
-        // TODO
+        GameObject selectedPlant = Globals.Instance.SelectedObject;
+        // if a plant is selected
+        if (selectedPlant != null)
+        {
+            // place plant if cell empty (i.e. only shadow present)
+            if (transform.childCount == 1 && transform.GetChild(0).gameObject == plantShadow)
+            {
+                // remove shadow
+                Destroy(plantShadow);
+                plantShadow = null;
+                // pay price for plant
+                Globals.Instance.SunScore -= selectedPlant.GetComponent<PlantVars>().plantPrice;
+                // plant the selected plant on this cell
+                GameObject newPlant = spawnPlantAsChild(selectedPlant);
+                // remove select script (make non-selectable)
+                Destroy(newPlant.GetComponent<SelectPlant>());
+                // enable shooting (if plant can shoot)
+                if (newPlant.GetComponent<Shoot>() != null)
+                {
+                    newPlant.GetComponent<Shoot>().enabled = true;
+                }
+                // enable sunflower production (if plant does so)
+                if (newPlant.GetComponent<SunflowerMakeSun>() != null)
+                {
+                    newPlant.GetComponent<SunflowerMakeSun>().enabled = true;
+                }
+                // add to plant layer
+                newPlant.layer = 9;
+                // unselect plant
+                Destroy(Globals.Instance.SelectedObject);
+                Globals.Instance.SelectedObject = null;
+            }
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -75,38 +106,6 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void Update()
     {
 
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        GameObject selectedPlant = Globals.Instance.SelectedObject;
-        // if currently dragging plant (i.e. a plant is selected)
-        if (selectedPlant != null)
-        {
-            // place plant if cell empty (i.e. only shadow present)
-            if (transform.childCount == 1 && transform.GetChild(0).gameObject == plantShadow)
-            {
-                // remove shadow
-                Destroy(plantShadow);
-                plantShadow = null;
-                // pay price for plant
-                Globals.Instance.SunScore -= selectedPlant.GetComponent<PlantVars>().plantPrice;
-                // plant the selected plant on this cell
-                GameObject newPlant = spawnPlantAsChild(selectedPlant);
-                // remove select script (make non-selectable)
-                Destroy(newPlant.GetComponent<SelectPlant>());
-                // enable shooting (if plant can shoot)
-                if (newPlant.GetComponent<Shoot>() != null)
-                {
-                    newPlant.GetComponent<Shoot>().enabled = true;
-                }
-                if (newPlant.GetComponent<SunflowerMakeSun>() != null)
-                {
-                    newPlant.GetComponent<SunflowerMakeSun>().enabled = true;
-                }
-                newPlant.layer = 9; 
-            }
-        }
     }
 
     private GameObject spawnPlantAsChild(GameObject template)
