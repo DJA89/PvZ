@@ -6,16 +6,15 @@ public class SunSpawner : MonoBehaviour
 {
 
     public GameObject sun;
-    private float rate;
-    public float startingProbability;
+    private float lastSpawnTime;
+    public readonly float minSunSpawnTime = 5; // in seconds
+    public readonly float maxSunSpawnTime = 8; // in seconds
     public Vector3 firstCell;
     private Vector3[,] cells;
-    private float frameCount;
-    // Start is called before the first frame update
 
+    // Start is called before the first frame update
     void Start()
     {
-        frameCount = 0f;
         cells = new Vector3[5, 9];
 
         cells[0, 0] = firstCell; // new Vector3(-8f, -2f, -2f);
@@ -34,19 +33,21 @@ public class SunSpawner : MonoBehaviour
                 cells[k, j] = cells[k, j - 1] + cellDiffHor;
             }
         }
-        rate = 660;
+        // init timer
+        lastSpawnTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        frameCount++;
-        float currentProbability = startingProbability + (100 - startingProbability) * frameCount / rate;
+        float timeSinceLastSpawn = Time.time - lastSpawnTime;
+        // this formula creates a linear function from maxSunSpawnTime=0% to maxSunSpawnTime=100%
+        float currentProbability = 100 * (timeSinceLastSpawn - minSunSpawnTime) / (maxSunSpawnTime - minSunSpawnTime);
         float random = Random.Range(0.0f, 100.0f);
-        if (random < currentProbability)
+        // don't spawn before "minSunSpawnTime" seconds && latest after "maxSunSpawnTime" seconds
+        if (timeSinceLastSpawn > minSunSpawnTime && random < currentProbability)
         {
-
-            frameCount = 0f;
+            lastSpawnTime = Time.time;
             //Debug.Log(random + " < " + currentProbability);
             int cellMin = Mathf.Min(Random.Range(0, 5), 4);
             int cellMax = Mathf.Min(Random.Range(0, 9), 8);
