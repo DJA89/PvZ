@@ -11,7 +11,7 @@ public class Globals {
     public GameObject SelectedObject { get; set; }
 
     // get and change sun score
-    private int _sunScore = 0;
+    private int _sunScore = 50; // enough to buy initial sunflower
     public static readonly int MAX_SCORE = 999;
     public int SunScore
     {
