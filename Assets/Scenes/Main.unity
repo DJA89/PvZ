@@ -692,6 +692,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5728349799785453137, guid: accbfc41351137543957ac5c611f84a8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770044185262377495, guid: accbfc41351137543957ac5c611f84a8,
+        type: 3}
+      propertyPath: m_Name
+      value: SunCollectPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 8523271252217189376, guid: accbfc41351137543957ac5c611f84a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -701,6 +711,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164542943445223556, guid: accbfc41351137543957ac5c611f84a8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164542943445223556, guid: accbfc41351137543957ac5c611f84a8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.04
       objectReference: {fileID: 0}
     - target: {fileID: 5225981706610628345, guid: accbfc41351137543957ac5c611f84a8,
         type: 3}

@@ -47,7 +47,7 @@ public class SunSpawner : MonoBehaviour
         {
 
             frameCount = 0f;
-            Debug.Log(random + " < " + currentProbability);
+            //Debug.Log(random + " < " + currentProbability);
             int cellMin = Mathf.Min(Random.Range(0, 5), 4);
             int cellMax = Mathf.Min(Random.Range(0, 9), 8);
             //Debug.Log("cellMin: " + cellMin + "; CellMax: " + cellMax + "; Value: " + cells[cellMin, cellMax]);

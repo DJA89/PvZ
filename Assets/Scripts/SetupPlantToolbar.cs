@@ -5,23 +5,28 @@ using UnityEngine;
 
 public class SetupPlantToolbar : MonoBehaviour
 {
-    public TextAsset plantsConfig;
     public GameObject toolbarObject;
     public GameObject toolbarPlantTemplates;
     public GameObject priceTagTemplates;
     public GameObject plantList;
+    public GameObject sunIcon; // where collected suns fly to
 
     int numberSlotsMaximum = 8;
 
     // Start is called before the first frame update
     void Start()
     {
+        // store sun icon
+        Globals.Instance.SunIcon = sunIcon;
+
+        // setup toolbar and grid
         Vector3 toolbarSize = toolbarObject.GetComponent<Collider>().bounds.size;
         Vector3 toParentFrontLeft = new Vector3(-toolbarSize.x / 2, toolbarSize.y / 2, -toolbarSize.z * 3 / 4);
         // 1 slot for sun + all plants
         Vector3 cellSize = new Vector3(toolbarSize.x / (numberSlotsMaximum + 1), 0.0f, toolbarSize.z);
         Vector3 toCellCenter = new Vector3(cellSize.x / 2, 0.0f, cellSize.z / 2);
         
+        // iterate through grid and place plants
         int plantsInToolbarCount = toolbarPlantTemplates.transform.childCount;
         for (int i = 0; i < plantsInToolbarCount; i++) // only create numberSlotsStarting slots
         {
@@ -42,14 +47,11 @@ public class SetupPlantToolbar : MonoBehaviour
                 newPlant.GetComponent<SunflowerMakeSun>().enabled = false;
             }
             newPlant.AddComponent<SelectPlant>();
-            // add price to plant
-            newPlant.AddComponent<PlantVars>();
-            newPlant.GetComponent<PlantVars>().plantPrice = plantTemplate.GetComponent<PlantVars>().plantPrice;
             
             // unity sometimes doesn't set position, so set localPosition (https://answers.unity.com/questions/225729/gameobject-positionset-not-working.html)
             // also yOffset = 0.001 to prevent z-fighting with ground
             newPlant.transform.localPosition = new Vector3(newPlant.transform.localPosition.x, newPlant.transform.localPosition.y + 0.001f, newPlant.transform.localPosition.z);
-
+            
             // create new price tag
             GameObject priceTagTemplate = priceTagTemplates.transform.GetChild(0).gameObject;
             float priceTagPositionX = (transform.position + toParentFrontLeft + cellPositionInGrid + toCellCenter).x - 0.8f;

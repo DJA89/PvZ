@@ -79,11 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473c9ec03ef486645996afbbcde4a777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantsConfig: {fileID: 4900000, guid: 27ae83807d5a8044eb9d1eb386a711c3, type: 3}
   toolbarObject: {fileID: 6647651686103538492}
   toolbarPlantTemplates: {fileID: 6051405962376976429}
   priceTagTemplates: {fileID: 8020447009495703483}
   plantList: {fileID: 1746473410264467499}
+  sunIcon: {fileID: 5164542943444997284}
 --- !u!1 &6051405962376976429
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,26 +178,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5155806071690782842, guid: 21b7caf25e260d14aa5a03b1bf39cf6b,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 6.4262822e-12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5155806071690782842, guid: 21b7caf25e260d14aa5a03b1bf39cf6b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5155806071690782842, guid: 21b7caf25e260d14aa5a03b1bf39cf6b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.0000018318508
-      objectReference: {fileID: 0}
-    - target: {fileID: 5155806071690782842, guid: 21b7caf25e260d14aa5a03b1bf39cf6b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.0000035952676
-      objectReference: {fileID: 0}
-    - target: {fileID: 5155806071690782842, guid: 21b7caf25e260d14aa5a03b1bf39cf6b,
-        type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
@@ -218,6 +198,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21b7caf25e260d14aa5a03b1bf39cf6b, type: 3}
+--- !u!1 &5164542943444997284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5155806071690490970, guid: 21b7caf25e260d14aa5a03b1bf39cf6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 9357116861309182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5164542943445223556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5155806071690782842, guid: 21b7caf25e260d14aa5a03b1bf39cf6b,
