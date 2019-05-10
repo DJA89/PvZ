@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    private const float opacity = 0.5f;
+    private const float greyOutLightness = 0.5f;
     private Color originalColor;
     private float yHeightDraggedObject = 1;
 
@@ -21,7 +21,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (Globals.Instance.SunScore < gameObject.GetComponent<PlantVars>().plantPrice)
         {
             // grey out
-            gameObject.GetComponent<Renderer>().material.color = originalColor / 2;
+            gameObject.GetComponent<Renderer>().material.color = originalColor * greyOutLightness;
         }
         else
         {
