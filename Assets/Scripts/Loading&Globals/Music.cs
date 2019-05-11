@@ -8,5 +8,4 @@ public class Music : MonoBehaviour
     {
         Globals.Instance.AudioManager = gameObject;
     }
-
 }

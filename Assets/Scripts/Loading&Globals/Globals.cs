@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Globals {
+public class Globals : MonoBehaviour {
     // Singleton
     private Globals() { }
-    public static Globals Instance { get; } = new Globals();
+    public static Globals Instance { get; private set; }
 
     // __app in _preload scene
-    public GameObject App { get; set; }
+    public GameObject App { get; private set; }
 
     // get and change selected object
     public GameObject SelectedObject { get; set; }
@@ -31,4 +31,13 @@ public class Globals {
 
     // current audio manager
     public GameObject AudioManager { get; set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        App = gameObject;
+    }
 }

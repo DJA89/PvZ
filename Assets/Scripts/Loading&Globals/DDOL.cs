@@ -8,7 +8,6 @@ public class DDOL : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        Globals.Instance.App = gameObject;
     }
 
     // add all general things, e.g. SOUNDS, SCORING, DB, ... to THIS gameobject (in this script or in onthers)
