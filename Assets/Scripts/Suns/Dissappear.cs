@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Loading : MonoBehaviour
+public class Dissappear : MonoBehaviour
 {
+
+    private int startingFrame;
     // Start is called before the first frame update
     void Start()
     {
-        // load main menu
-        SceneManager.LoadScene("Menu");
+        startingFrame = Time.frameCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       if (Time.frameCount - startingFrame > 600)
+        {
+            Destroy(gameObject);
+        }
     }
 }
