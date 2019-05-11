@@ -10,15 +10,15 @@ public class MusicFader : MonoBehaviour
 
     public void FadeOut()
     {
-        FadeAudio(musicFadeTime, Fade.Out);
+        StartCoroutine(FadeAudio(musicFadeTime, Fade.Out));
     }
 
-    internal void FadeIn()
+    public void FadeIn()
     {
-        FadeAudio(musicFadeTime, Fade.In);
+        StartCoroutine(FadeAudio(musicFadeTime, Fade.In));
     }
 
-    void FadeAudio(float timer, Fade fadeType)
+    IEnumerator FadeAudio(float timer, Fade fadeType)
     {
         AudioSource currentAudio = Globals.Instance.AudioManager.GetComponent<AudioSource>();
         float defaultVolume = currentAudio.volume;
@@ -27,11 +27,11 @@ public class MusicFader : MonoBehaviour
         float i = 0.0F;
         float step = 1.0F / timer;
 
-        while (i <= 1.0F)
+        while (i <= 1.0F && currentAudio != null)
         {
             i += step * Time.deltaTime;
             currentAudio.volume = Mathf.Lerp(start, end, i);
-            new WaitForSeconds(step * Time.deltaTime);
+            yield return new WaitForSeconds(step * Time.deltaTime);
         }
     }
 }

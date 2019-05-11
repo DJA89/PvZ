@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0861412632e456f4fb2c39c60f19765f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicFadeTime: 0.8
+  musicFadeTime: 0.5
 --- !u!114 &8268928
 MonoBehaviour:
   m_ObjectHideFlags: 0
