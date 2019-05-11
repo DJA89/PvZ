@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 8268925}
   - component: {fileID: 8268924}
   - component: {fileID: 8268926}
+  - component: {fileID: 8268927}
+  - component: {fileID: 8268928}
   m_Layer: 0
   m_Name: __app
   m_TagString: Untagged
@@ -166,5 +168,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03bb041d78f8aa945b7383a9a6a6a386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8268927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0861412632e456f4fb2c39c60f19765f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicFadeTime: 0.5
+--- !u!114 &8268928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6038b56a75bf5914294e918ac35d87fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

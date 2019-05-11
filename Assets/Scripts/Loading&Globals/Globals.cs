@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Globals {
+public class Globals : MonoBehaviour {
     // Singleton
     private Globals() { }
-    public static Globals Instance { get; } = new Globals();
+    public static Globals Instance { get; private set; }
+
+    // __app in _preload scene
+    public GameObject App { get; private set; }
 
     // get and change selected object
     public GameObject SelectedObject { get; set; }
@@ -26,15 +29,15 @@ public class Globals {
     // sun icon on toolbar: where collected suns fly to
     public GameObject SunIcon { get; set; }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // current audio manager
+    public GameObject AudioManager { get; set; }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        App = gameObject;
     }
 }
