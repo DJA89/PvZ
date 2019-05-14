@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class ButtonEvents : MonoBehaviour, IPointerEnterHandler
 {
-    public AudioSource sound;
+    public AudioClip sound;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (gameObject.GetComponent<Button>().IsInteractable())
         {
-            sound.Play();
+            AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume);
         }
     }
 
