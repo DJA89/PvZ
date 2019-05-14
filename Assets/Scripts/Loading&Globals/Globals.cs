@@ -14,7 +14,7 @@ public class Globals : MonoBehaviour {
     public GameObject SelectedObject { get; set; }
 
     // get and change sun score
-    private int _sunScore = 200; // enough to buy initial sunflower
+    private int _sunScore = 1000; // enough to buy initial sunflower
     public static readonly int MAX_SCORE = 999;
     public int SunScore
     {
