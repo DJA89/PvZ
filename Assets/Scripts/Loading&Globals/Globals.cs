@@ -14,7 +14,7 @@ public class Globals : MonoBehaviour {
     public GameObject SelectedObject { get; set; }
 
     // get and change sun score
-    private int _sunScore = 50; // enough to buy initial sunflower
+    private int _sunScore = 200; // enough to buy initial sunflower
     public static readonly int MAX_SCORE = 999;
     public int SunScore
     {
@@ -31,6 +31,12 @@ public class Globals : MonoBehaviour {
 
     // current audio manager
     public GameObject AudioManager { get; set; }
+
+    // current music volume
+    public float musicVolume = 0.1f;
+
+    // current SFX volume
+    public float sfxVolume = 0.5f;
 
     private void Awake()
     {

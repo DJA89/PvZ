@@ -18,7 +18,7 @@ public class CollectSuns : MonoBehaviour, IPointerClickHandler
         // move towards sun score (without gravity)
         collected = true;
         transform.GetComponent<Rigidbody>().useGravity = false;
-        AudioSource.PlayClipAtPoint(sound, transform.position);
+        AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume);
     }
 
     private void Update()
