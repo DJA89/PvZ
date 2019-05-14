@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 986482980425715809, guid: 207a9a17979c5f446950396d30c71252, type: 3}
   shotSpawn: {fileID: 147180255347911209}
+  sound: {fileID: 8300000, guid: b5d989d158f065147b140671bb63e369, type: 3}
 --- !u!114 &7508069068022677990
 MonoBehaviour:
   m_ObjectHideFlags: 0

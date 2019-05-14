@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public GameObject shot;
     public GameObject shotSpawn;
+    public AudioClip sound;
     float timeToShoot;
     //public AudioClip sound;
 
@@ -32,7 +33,7 @@ public class Shoot : MonoBehaviour
             obj.transform.Translate(toLeftBorder);
             obj.transform.parent = transform; // add as child to current
             obj.GetComponent<Rigidbody>().AddForce(1000.0f, 0.0f, 0.0f); // shoot
-            //AudioSource.PlayClipAtPoint(sound, transform.position);
+            AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume); // play sound
         }
 
     }

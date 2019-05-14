@@ -142,7 +142,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 76817b803c6a8d1488503d6840633442, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.47
+  m_Volume: 0.205
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -724,5 +724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: priceTagTemplate
       objectReference: {fileID: 0}
+    - target: {fileID: 2979037182483226293, guid: accbfc41351137543957ac5c611f84a8,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8401941964538f644afe6a7e2cd77993, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: accbfc41351137543957ac5c611f84a8, type: 3}

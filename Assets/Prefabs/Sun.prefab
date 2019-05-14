@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunValue: 25
+  sound: {fileID: 8300000, guid: ce603ec6d8ec95747b73b0cb0aa97531, type: 3}
 --- !u!198 &5083326387594178698
 ParticleSystem:
   m_ObjectHideFlags: 0
