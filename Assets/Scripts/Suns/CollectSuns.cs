@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class CollectSuns : MonoBehaviour, IPointerClickHandler
 {
     public int sunValue = 50;
+    public AudioClip clip;
 
     private float collectionSpeed = 5f; // in Time.deltaTime
 
@@ -17,6 +18,8 @@ public class CollectSuns : MonoBehaviour, IPointerClickHandler
         // move towards sun score (without gravity)
         collected = true;
         transform.GetComponent<Rigidbody>().useGravity = false;
+        AudioSource sound = GetComponent<AudioSource>();
+        sound.PlayOneShot(clip);
     }
 
     private void Update()
