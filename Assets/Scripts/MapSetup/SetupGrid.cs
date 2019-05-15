@@ -29,6 +29,7 @@ public class SetupGrid : MonoBehaviour
                 // unity sometimes doesn't set position, so set localPosition (https://answers.unity.com/questions/225729/gameobject-positionset-not-working.html)
                 // also yOffset = 0.001 to prevent z-fighting with ground
                 newCell.transform.localPosition = new Vector3(newCell.transform.localPosition.x, 0.001f, newCell.transform.localPosition.z);
+                newCell.GetComponent<CellVars>().lane = j;
             }
         }
     }

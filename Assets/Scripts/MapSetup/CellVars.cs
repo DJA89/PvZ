@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantVars : MonoBehaviour
+public class CellVars : MonoBehaviour
 {
-    public int plantPrice;
-    public float damage;
     public int lane;
 }

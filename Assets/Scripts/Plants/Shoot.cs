@@ -9,11 +9,12 @@ public class Shoot : MonoBehaviour
     public AudioClip sound;
     float timeToShoot;
     //public AudioClip sound;
+    private GameObject zombieSpawner;
 
     // Use this for initialization
     void Start()
     {
-
+        zombieSpawner = GameObject.Find("ZombieSpawner");
         timeToShoot = 0.5f;
 
     }
@@ -23,7 +24,7 @@ public class Shoot : MonoBehaviour
     {
 
         timeToShoot -= Time.deltaTime;
-        if (timeToShoot <= 0.0f)
+        if (timeToShoot <= 0.0f && zombieSpawner.GetComponent<Spawner>().lanes[gameObject.GetComponent<PlantVars>().lane].transform.childCount != 0)
         {
             timeToShoot = 0.5f;
             // as the shots are spawned as CHILDREN of the Plant, they automatically inherit the plant.transform
