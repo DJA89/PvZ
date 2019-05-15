@@ -24,7 +24,6 @@ public class MenuManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        Debug.Log("MenuManager.LoadMainMenu");
         Globals.Instance.App.GetComponent<Music>().playMainMenuMusic();
         mainMenuPlane.SetActive(true);
         levelMenuPlane.SetActive(false);
@@ -32,7 +31,6 @@ public class MenuManager : MonoBehaviour
 
     public void LoadLevelMenu()
     {
-        Debug.Log("MenuManager.LoadLevelMenu");
         mainMenuPlane.SetActive(false);
         levelMenuPlane.SetActive(true);
     }

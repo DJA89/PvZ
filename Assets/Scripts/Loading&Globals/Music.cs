@@ -11,10 +11,11 @@ public class Music : MonoBehaviour
     enum Fade { In, Out };
     private AudioSource currentMusic;
     private AudioSource lastMusic;
+    private Coroutine currentFader;
+    private Coroutine lastFader;
 
     private void Start()
     {
-        Debug.Log("Music.Start");
         // create audio sources
         currentMusic = gameObject.AddComponent<AudioSource>();
         currentMusic.loop = true;
@@ -26,31 +27,43 @@ public class Music : MonoBehaviour
 
     public void playMainMenuMusic()
     {
-        Debug.Log("Music.playMainMenuMusic");
         fadeOutChangeMusic(mainMenuMusic);
     }
 
     public void playDayLevelMusic()
     {
-        Debug.Log("Music.playDayLevelMusic");
         fadeOutChangeMusic(dayLevelMusic);
     }
 
     private void fadeOutChangeMusic(AudioClip newMusic)
     {
-        // swap current and last
-        var tmp = lastMusic;
-        lastMusic = currentMusic;
-        currentMusic = tmp;
-        // assign new current
-        currentMusic.clip = newMusic;
+        changeMusic(newMusic);
         currentMusic.volume = Globals.Instance.musicVolume;
-        currentMusic.PlayScheduled(AudioSettings.dspTime + 2);
         // fade out
-        StartCoroutine(FadeAudio(lastMusic, musicFadeTime, Fade.Out));
+        if (lastFader != null)
+        {
+            StopCoroutine(lastFader);
+        }
+        lastFader = StartCoroutine(FadeAudio(lastMusic, musicFadeTime, Fade.Out));
     }
 
     private void crossFadeChangeMusic(AudioClip newMusic)
+    {
+        changeMusic(newMusic);
+        // cross fade
+        if (lastFader != null)
+        {
+            StopCoroutine(lastFader);
+        }
+        if (currentFader != null)
+        {
+            StopCoroutine(currentFader);
+        }
+        lastFader = StartCoroutine(FadeAudio(lastMusic, musicFadeTime, Fade.Out));
+        currentFader = StartCoroutine(FadeAudio(currentMusic, musicFadeTime, Fade.In));
+    }
+
+    private void changeMusic(AudioClip newMusic)
     {
         // swap current and last
         AudioSource tmp = lastMusic;
@@ -58,10 +71,7 @@ public class Music : MonoBehaviour
         currentMusic = tmp;
         // assign new current
         currentMusic.clip = newMusic;
-        currentMusic.PlayScheduled(AudioSettings.dspTime + 0.8);
-        // cross fade
-        StartCoroutine(FadeAudio(lastMusic, musicFadeTime, Fade.Out));
-        StartCoroutine(FadeAudio(currentMusic, musicFadeTime, Fade.In));
+        currentMusic.PlayScheduled(AudioSettings.dspTime + 2);
     }
 
     IEnumerator FadeAudio(AudioSource music, float timer, Fade fadeType)
