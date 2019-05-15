@@ -724,10 +724,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: priceTagTemplate
       objectReference: {fileID: 0}
-    - target: {fileID: 2979037182483226293, guid: accbfc41351137543957ac5c611f84a8,
-        type: 3}
-      propertyPath: sound
-      value: 
-      objectReference: {fileID: 8300000, guid: 8401941964538f644afe6a7e2cd77993, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: accbfc41351137543957ac5c611f84a8, type: 3}
