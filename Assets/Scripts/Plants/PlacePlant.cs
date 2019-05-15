@@ -123,6 +123,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         // and move it to top of cell
         float sizeY = gameObject.GetComponent<Collider>().bounds.size.y;
         newPlant.transform.position += new Vector3(0.0f, sizeY / 2, 0.0f);
+        newPlant.GetComponent<Renderer>().material.SetInt("_ZWrite", 2);
         return newPlant;
     }
 }
