@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantVars : MonoBehaviour
+
+public class ZombieVars : MonoBehaviour
 {
-    public int plantPrice;
     public float damage;
 }

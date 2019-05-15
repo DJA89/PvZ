@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 5614980362544874709}
   - component: {fileID: 2180307608975641663}
   - component: {fileID: 2897158380280503489}
+  - component: {fileID: 7095770203516511907}
   m_Layer: 12
   m_Name: Plant1Peashooter
   m_TagString: Plant
@@ -173,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantPrice: 100
+  damage: 20
 --- !u!82 &2897158380280503489
 AudioSource:
   m_ObjectHideFlags: 0
@@ -269,3 +271,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7095770203516511907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240444477395848514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadb26e79b0de46e0975b11d2f3f81b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 300

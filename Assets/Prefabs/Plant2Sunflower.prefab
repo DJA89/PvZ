@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3234842626495211570}
   - component: {fileID: 1119041285558362576}
   - component: {fileID: 8103666303433978335}
+  - component: {fileID: 2327475452880838316}
   m_Layer: 12
   m_Name: Plant2Sunflower
   m_TagString: Plant
@@ -140,3 +141,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantPrice: 50
+  damage: 0
+--- !u!114 &2327475452880838316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363535460142047250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadb26e79b0de46e0975b11d2f3f81b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 300

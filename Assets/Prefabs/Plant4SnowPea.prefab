@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7453915036671416091}
   - component: {fileID: 5874468776869252679}
   - component: {fileID: 7508069068022677990}
+  - component: {fileID: 7426651792688158563}
   m_Layer: 12
   m_Name: Plant4SnowPea
   m_TagString: Plant
@@ -172,3 +173,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantPrice: 175
+  damage: 20
+--- !u!114 &7426651792688158563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883055067571144175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadb26e79b0de46e0975b11d2f3f81b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 300

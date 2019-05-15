@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 8925554620995569438}
   - component: {fileID: 2383616826050256694}
   - component: {fileID: 8392690646347569518}
+  - component: {fileID: 1174689011545407500}
   m_Layer: 11
   m_Name: ZombieHuge
-  m_TagString: Untagged
+  m_TagString: zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +158,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombie: {fileID: 0}
-  life: 40
+  life: 3000
+--- !u!114 &1174689011545407500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919431002895075107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efd38d63f32a4a9ba2ab77f88344f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1000
 --- !u!1 &1039738202872723757
 GameObject:
   m_ObjectHideFlags: 0
