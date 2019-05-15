@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     public GameObject zombie2;
     public TextAsset levelFile;
     public Vector3 firstCell;
+    public GameObject[] lanes;
 
     private Vector3[] cells;
     private int[][] level;
@@ -19,6 +20,16 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lanes = new GameObject[5];
+
+        for (int k = 0; k < 5; k++)
+        {
+            GameObject newLane = new GameObject("Lane");
+            newLane.transform.parent = transform;
+            lanes[k] = newLane;
+
+        }
+
         levelStartFramecount = Time.frameCount;
         Vector3 cellDiff = new Vector3(0, 0, 3f);
         cells = new Vector3[5];
@@ -65,8 +76,8 @@ public class Spawner : MonoBehaviour
                 currentZombie = level[currentLine][j] - 1;
                 if (level[currentLine][j] != 0)
                 {
-                    GameObject obj = (GameObject)Instantiate(zombies[currentZombie], cells[j-1], transform.rotation, transform);
-                    obj.transform.parent = transform;
+                    GameObject newZombie = (GameObject)Instantiate(zombies[currentZombie], cells[j-1], transform.rotation, transform);
+                    newZombie.transform.parent = lanes[j-1].transform;
                 }
             }
             currentLine++;

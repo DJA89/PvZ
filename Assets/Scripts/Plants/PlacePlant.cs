@@ -112,6 +112,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         Vector3 plantSpawnPoint = new Vector3(0.0f, 0.0f, 0); //-0.75f); // relative to (parent) cell
         GameObject newPlant = (GameObject)Instantiate(template, plantSpawnPoint + transform.position, transform.rotation, transform);
+        newPlant.GetComponent<PlantVars>().lane = gameObject.GetComponent<CellVars>().lane;
         // divide by absolute (lossy) cell scale (otherwise plant gets squashed)
         Vector3 newPlantScale = newPlant.transform.localScale;
         newPlantScale.x /= transform.lossyScale.x;
