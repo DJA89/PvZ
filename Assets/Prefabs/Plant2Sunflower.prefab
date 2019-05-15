@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3234842626495211570}
   - component: {fileID: 1119041285558362576}
   - component: {fileID: 8103666303433978335}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Plant2Sunflower
   m_TagString: Plant
   m_Icon: {fileID: 0}
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84acb929e1eb3418ca5072aa6f09cb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  framesPerSun: 420
   sun: {fileID: 5083326388367936147, guid: 7f5e6ad76e9b94caaa2f34093c4836c3, type: 3}
   velocity: 100
 --- !u!114 &8103666303433978335

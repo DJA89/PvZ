@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5614980362544874709}
   - component: {fileID: 2180307608975641663}
   - component: {fileID: 2897158380280503489}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Plant1Peashooter
   m_TagString: Plant
   m_Icon: {fileID: 0}
