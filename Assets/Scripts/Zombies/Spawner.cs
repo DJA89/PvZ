@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Reflection;
 using UnityEngine;
 
 
@@ -18,10 +14,12 @@ public class Spawner : MonoBehaviour
     private int[][] level;
     private int currentLine;
     private GameObject[] zombies;
+    private int levelStartFramecount;
 
     // Start is called before the first frame update
     void Start()
     {
+        levelStartFramecount = Time.frameCount;
         Vector3 cellDiff = new Vector3(0, 0, 3f);
         cells = new Vector3[5];
         cells[0] = firstCell; // new Vector3(-8f, -2f, -2f);
@@ -58,7 +56,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int currentFrame = Time.frameCount;
+        int currentFrame = Time.frameCount - levelStartFramecount;
         if (currentLine < level.Length && level[currentLine][0] == currentFrame)
         {
             int currentZombie;
