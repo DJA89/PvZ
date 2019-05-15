@@ -6,11 +6,11 @@ public class ZombieLife : MonoBehaviour
 {
 
     public GameObject zombie;
-    public int life;
+    public float life;
     // Start is called before the first frame update
     void Start()
     {
-        life = 10;
+
     }
 
     // Update is called once per frame
@@ -23,8 +23,8 @@ public class ZombieLife : MonoBehaviour
     {
          if(collision.gameObject.tag == "damagingObject")
         {
-            life--;
-            if (life == 0)
+            life -= collision.gameObject.GetComponentInParent<PlantVars>().damage;
+            if (life <= 0)
             {
                 Destroy(gameObject, 1.0F);
             }
