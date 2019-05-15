@@ -29,14 +29,11 @@ public class Globals : MonoBehaviour {
     // sun icon on toolbar: where collected suns fly to
     public GameObject SunIcon { get; set; }
 
-    // current audio manager
-    public GameObject AudioManager { get; set; }
-
     // current music volume
-    public float musicVolume = 0.1f;
+    public float musicVolume;
 
     // current SFX volume
-    public float sfxVolume = 0.5f;
+    public float sfxVolume;
 
     private void Awake()
     {

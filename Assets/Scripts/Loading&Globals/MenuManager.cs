@@ -16,8 +16,7 @@ public class MenuManager : MonoBehaviour
     // load level 1-6
     public void LoadLevel(int levelID)
     {
-        // fade out current scene volume before changing scene
-        Globals.Instance.App.GetComponent<MusicFader>().FadeOut();
+        Globals.Instance.App.GetComponent<Music>().playDayLevelMusic();
         //string levelName = "level" + levelID;
         //SceneManager.LoadScene(levelName, LoadSceneMode.Single);
         SceneManager.LoadScene("Main");
@@ -25,12 +24,15 @@ public class MenuManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        Debug.Log("MenuManager.LoadMainMenu");
+        Globals.Instance.App.GetComponent<Music>().playMainMenuMusic();
         mainMenuPlane.SetActive(true);
         levelMenuPlane.SetActive(false);
     }
 
     public void LoadLevelMenu()
     {
+        Debug.Log("MenuManager.LoadLevelMenu");
         mainMenuPlane.SetActive(false);
         levelMenuPlane.SetActive(true);
     }
