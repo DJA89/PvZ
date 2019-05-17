@@ -60,6 +60,8 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 // create copy to select (as child of scene *root*)
                 Globals.Instance.SelectedObject = (GameObject)Instantiate(gameObject, transform.position, transform.rotation);
+                // disable selected plant
+                DisableEnable.Disable(Globals.Instance.SelectedObject);
                 // dont raycast dragged object
                 Globals.Instance.SelectedObject.layer = 2; // Ignore Raycast Layer
             }

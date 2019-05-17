@@ -22,11 +22,8 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 plantShadow = spawnPlantAsChild(selectedPlant);
                 //SetRendererAlphas(opacity, GetComponentsInChildren<Renderer>()); // make semi-transparent
                 plantShadow.GetComponent<Renderer>().material.color -= new Color(0, 0, 0, 1 - opacity);
-                // disable shooting
-                if (plantShadow.GetComponent<Shoot>() != null)
-                {
-                    plantShadow.GetComponent<Shoot>().enabled = false;
-                }
+                // disable shadow plant
+                DisableEnable.Disable(plantShadow);
                 // dont raycast shadow object
                 plantShadow.layer = 2; // Ignore Raycast Layer
             }
@@ -51,6 +48,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 GameObject newPlant = spawnPlantAsChild(selectedPlant);
                 // remove select script (make non-selectable)
                 Destroy(newPlant.GetComponent<SelectPlant>());
+                // enable planted plant
                 DisableEnable.Enable(newPlant);
                 // add to plant layer
                 newPlant.layer = 9;
