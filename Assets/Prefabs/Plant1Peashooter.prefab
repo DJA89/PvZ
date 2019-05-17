@@ -160,7 +160,6 @@ MonoBehaviour:
   shot: {fileID: 5801586988641022494, guid: 02bc5494bdd5b584bb412096a7f8fe80, type: 3}
   shotSpawn: {fileID: 285865987735688904}
   sound: {fileID: 8300000, guid: 8401941964538f644afe6a7e2cd77993, type: 3}
-  RELATIVE_SFX_VOLUME: 0.5
 --- !u!114 &2180307608975641663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +175,7 @@ MonoBehaviour:
   plantPrice: 100
   damage: 20
   lane: 0
+  rechargeTime: 7.5
 --- !u!114 &7095770203516511907
 MonoBehaviour:
   m_ObjectHideFlags: 0

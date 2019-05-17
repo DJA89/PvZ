@@ -175,6 +175,7 @@ MonoBehaviour:
   plantPrice: 175
   damage: 20
   lane: 0
+  rechargeTime: 7.5
 --- !u!114 &7426651792688158563
 MonoBehaviour:
   m_ObjectHideFlags: 0
