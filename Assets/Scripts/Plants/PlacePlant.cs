@@ -51,16 +51,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 GameObject newPlant = spawnPlantAsChild(selectedPlant);
                 // remove select script (make non-selectable)
                 Destroy(newPlant.GetComponent<SelectPlant>());
-                // enable shooting (if plant can shoot)
-                if (newPlant.GetComponent<Shoot>() != null)
-                {
-                    newPlant.GetComponent<Shoot>().enabled = true;
-                }
-                // enable sunflower production (if plant does so)
-                if (newPlant.GetComponent<SunflowerMakeSun>() != null)
-                {
-                    newPlant.GetComponent<SunflowerMakeSun>().enabled = true;
-                }
+                DisableEnable.Enable(newPlant);
                 // add to plant layer
                 newPlant.layer = 9;
                 // unselect plant

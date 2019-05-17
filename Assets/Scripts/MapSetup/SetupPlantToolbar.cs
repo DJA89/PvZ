@@ -37,16 +37,8 @@ public class SetupPlantToolbar : MonoBehaviour
             GameObject plantTemplate = toolbarPlantTemplates.transform.GetChild(i).gameObject;
             Vector3 newPlantPosition = transform.position + toParentFrontLeft + cellPositionInGrid + toCellCenter;
             GameObject newPlant = (GameObject)Instantiate(plantTemplate, newPlantPosition, plantList.transform.rotation, plantList.transform);
-            // if has shoot script => disable it
-            if (newPlant.GetComponent<Shoot>() != null)
-            {
-                newPlant.GetComponent<Shoot>().enabled = false;
-            }
-            if (newPlant.GetComponent<SunflowerMakeSun>() != null)
-            {
-                newPlant.GetComponent<SunflowerMakeSun>().enabled = false;
-            }
             newPlant.AddComponent<SelectPlant>();
+            DisableEnable.Disable(newPlant);
             
             // unity sometimes doesn't set position, so set localPosition (https://answers.unity.com/questions/225729/gameobject-positionset-not-working.html)
             // also yOffset = 0.001 to prevent z-fighting with ground
