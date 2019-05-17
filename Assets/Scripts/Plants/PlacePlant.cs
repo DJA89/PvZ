@@ -5,9 +5,11 @@ using UnityEngine.EventSystems;
 
 public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    private GameObject plantShadow;
+    public AudioClip sound;
 
+    private GameObject plantShadow;
     private const float opacity = 0.5f;
+    float RELATIVE_SFX_VOLUME = 0.5f;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -46,6 +48,8 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 Globals.Instance.SunScore -= selectedPlant.GetComponent<PlantVars>().plantPrice;
                 // plant the selected plant on this cell
                 GameObject newPlant = spawnPlantAsChild(selectedPlant);
+                // play plating sound
+                AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
                 // remove select script (make non-selectable)
                 Destroy(newPlant.GetComponent<SelectPlant>());
                 // enable planted plant
