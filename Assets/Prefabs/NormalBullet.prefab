@@ -142,3 +142,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 465b675a7122e744e9a0bbc1bcebfd6d, type: 3}
+  RELATIVE_SFX_VOLUME: 0.1

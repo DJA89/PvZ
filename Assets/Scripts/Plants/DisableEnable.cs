@@ -21,6 +21,11 @@ public class DisableEnable : MonoBehaviour
         {
             plant.GetComponent<Animator>().enabled = false;
         }
+        // disable physics on collider
+        if (plant.GetComponent<BoxCollider>() != null)
+        {
+            plant.GetComponent<BoxCollider>().isTrigger = true;
+        }
     }
 
     public static void Enable(GameObject plant)
@@ -39,6 +44,11 @@ public class DisableEnable : MonoBehaviour
         if (plant.GetComponent<Animator>() != null)
         {
             plant.GetComponent<Animator>().enabled = true;
+        }
+        // enable physics on collider
+        if (plant.GetComponent<BoxCollider>() != null)
+        {
+            plant.GetComponent<BoxCollider>().isTrigger = false;
         }
     }
 }
