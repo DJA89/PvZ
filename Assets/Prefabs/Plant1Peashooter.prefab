@@ -124,7 +124,7 @@ Animator:
   m_GameObject: {fileID: 6240444477395848514}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c335f1cef0db4494b897bda01b63103e, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c7c7613edb895343bb6ff808de42b2a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantPrice: 100
   damage: 20
+  lane: 0
 --- !u!82 &2897158380280503489
 AudioSource:
   m_ObjectHideFlags: 0

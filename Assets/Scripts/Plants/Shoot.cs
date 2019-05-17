@@ -7,7 +7,8 @@ public class Shoot : MonoBehaviour
     public GameObject shot;
     public GameObject shotSpawn;
     public AudioClip sound;
-    float timeToShoot;
+    const float SHOOTING_PERIOD = 1.5f; // seconds
+    float timeToShoot= SHOOTING_PERIOD;
     //public AudioClip sound;
     private GameObject zombieSpawner;
 
@@ -15,8 +16,6 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         zombieSpawner = GameObject.Find("ZombieSpawner");
-        timeToShoot = 0.5f;
-
     }
 
     // Update is called once per frame
@@ -26,7 +25,7 @@ public class Shoot : MonoBehaviour
         timeToShoot -= Time.deltaTime;
         if (timeToShoot <= 0.0f && zombieSpawner.GetComponent<Spawner>().lanes[gameObject.GetComponent<PlantVars>().lane].transform.childCount != 0)
         {
-            timeToShoot = 0.5f;
+            timeToShoot = SHOOTING_PERIOD;
             // as the shots are spawned as CHILDREN of the Plant, they automatically inherit the plant.transform
             GameObject obj = (GameObject)Instantiate(shot, shotSpawn.transform.position, shotSpawn.transform.rotation); // just apply spawnPoint transform 
             // move by half x size (move out of plant to the front)
@@ -35,6 +34,7 @@ public class Shoot : MonoBehaviour
             obj.transform.parent = transform; // add as child to current
             obj.GetComponent<Rigidbody>().AddForce(1000.0f, 0.0f, 0.0f); // shoot
             AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume); // play sound
+            gameObject.GetComponent<Animator>().SetTrigger("shoot"); // shooting animation
         }
 
     }
