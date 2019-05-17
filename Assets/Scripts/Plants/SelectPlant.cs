@@ -14,7 +14,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Start()
     {
         originalColor = gameObject.GetComponent<Renderer>().material.color;
-        GetComponent<PlantVars>().lastTimeBought = -1000; // everything affordable
+        GetComponent<PlantVars>().lastTimeBought = - GetComponent<PlantVars>().plantPrice; // everything affordable
     }
 
     public void growBack()
