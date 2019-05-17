@@ -9,7 +9,9 @@ public class Hit : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject, 0.5F);
+        Destroy(gameObject);
+        // hitting animation
+        // TODO
         AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
     }
 }
