@@ -8,17 +8,39 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private const float greyOutLightness = 0.5f;
     private Color originalColor;
     private float yHeightDraggedObject = 1;
+    private GameObject growingBackPlant;
 
     // Start is called before the first frame update
     void Start()
     {
         originalColor = gameObject.GetComponent<Renderer>().material.color;
-        GetComponent<PlantVars>().lastTimeBought = -1000; // everything affordable
+        GetComponent<PlantVars>().lastTimeBought = - GetComponent<PlantVars>().plantPrice; // everything affordable
+    }
+
+    public void growBack()
+    {
+        // grow new plant
+        growingBackPlant = (GameObject)Instantiate(gameObject, transform.position, transform.rotation, transform.parent);
+        // ungrey growing plant
+        growingBackPlant.GetComponent<Renderer>().material.color = originalColor;
+        growingBackPlant.GetComponent<SelectPlant>().enabled = false;
+        DisableEnable.Disable(growingBackPlant);
+        growingBackPlant.AddComponent<GrowingPlants>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // if recharged, remove growing plant
+        if (plantRecharged())
+        {
+            if (growingBackPlant != null)
+            {
+                Destroy(growingBackPlant);
+                growingBackPlant = null;
+            }
+        }
+
         // grey out not affordable plants
         if (plantActive())
         {
@@ -86,9 +108,13 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public bool plantActive()
     {
         // returns true if plant is AFFORDABLE and RECHARGED (or never bought)
-        PlantVars vars = GetComponent<PlantVars>();
-        return Globals.Instance.SunScore >= vars.plantPrice
-            && (vars.timesBought == 0
-                || Time.time - vars.lastTimeBought >= vars.rechargeTime);
+        return Globals.Instance.SunScore >= GetComponent<PlantVars>().plantPrice
+            && (GetComponent<PlantVars>().timesBought == 0
+                || plantRecharged());
+    }
+
+    public bool plantRecharged()
+    {
+        return Time.time - GetComponent<PlantVars>().lastTimeBought >= GetComponent<PlantVars>().rechargeTime;
     }
 }

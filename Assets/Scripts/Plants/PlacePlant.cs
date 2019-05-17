@@ -23,7 +23,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 // show shadow of plant
                 plantShadow = spawnPlantAsChild(selectedPlant);
                 //SetRendererAlphas(opacity, GetComponentsInChildren<Renderer>()); // make semi-transparent
-                plantShadow.GetComponent<Renderer>().material.color -= new Color(0, 0, 0, 1 - opacity);
+                plantShadow.GetComponent<Renderer>().material.color *= 1 - opacity;
                 // disable shadow plant
                 DisableEnable.Disable(plantShadow);
                 // dont raycast shadow object
@@ -61,6 +61,8 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 selectedPlant.GetComponent<PlantVars>().timesBought++;
                 // init recharge
                 selectedPlant.GetComponent<PlantVars>().lastTimeBought = Time.time;
+                // grow new plant (recharge)
+                selectedPlant.GetComponent<SelectPlant>().growBack();
                 // unselect toolbar plant & destroy dragged object
                 Globals.Instance.SelectedObject = null;
                 Destroy(Globals.Instance.DraggedObject);
