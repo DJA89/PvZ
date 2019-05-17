@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 2180307608975641663}
   - component: {fileID: 2897158380280503489}
   - component: {fileID: 7095770203516511907}
+  - component: {fileID: 1022243971276800045}
   m_Layer: 12
   m_Name: Plant1Peashooter
   m_TagString: Plant
@@ -124,7 +125,7 @@ Animator:
   m_GameObject: {fileID: 6240444477395848514}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c335f1cef0db4494b897bda01b63103e, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33316c0b14f98884492333fb6ce9b5eb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -175,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantPrice: 100
   damage: 20
+  lane: 0
 --- !u!82 &2897158380280503489
 AudioSource:
   m_ObjectHideFlags: 0
@@ -284,3 +286,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 300
+--- !u!111 &1022243971276800045
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240444477395848514}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 2b345ebeb06dede418f48d9dba5d7a87, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
