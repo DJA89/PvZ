@@ -12,6 +12,8 @@ public class Globals : MonoBehaviour {
 
     // get and change selected object
     public GameObject SelectedObject { get; set; }
+    // get and change dragged object
+    public GameObject DraggedObject { get; set; }
 
     // get and change sun score
     private int _sunScore = 1000; // enough to buy initial sunflower

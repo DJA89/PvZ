@@ -14,7 +14,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         GameObject selectedPlant = Globals.Instance.SelectedObject;
-        // if currently dragging plant (i.e. a plant is selected)
+        // if plant selected
         if (selectedPlant != null)
         {
             // if cell is free
@@ -35,6 +35,7 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerClick(PointerEventData eventData)
     {
         GameObject selectedPlant = Globals.Instance.SelectedObject;
+        GameObject draggedPlant = Globals.Instance.DraggedObject;
         // if a plant is selected
         if (selectedPlant != null)
         {
@@ -46,9 +47,9 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 plantShadow = null;
                 // pay price for plant
                 Globals.Instance.SunScore -= selectedPlant.GetComponent<PlantVars>().plantPrice;
-                // plant the selected plant on this cell
-                GameObject newPlant = spawnPlantAsChild(selectedPlant);
-                // play plating sound
+                // plant the dragged plant on this cell
+                GameObject newPlant = spawnPlantAsChild(draggedPlant);
+                // play planting sound
                 AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
                 // remove select script (make non-selectable)
                 Destroy(newPlant.GetComponent<SelectPlant>());
@@ -56,9 +57,14 @@ public class PlacePlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 DisableEnable.Enable(newPlant);
                 // add to plant layer
                 newPlant.layer = 9;
-                // unselect plant
-                Destroy(Globals.Instance.SelectedObject);
+                // counter
+                selectedPlant.GetComponent<PlantVars>().timesBought++;
+                // init recharge
+                selectedPlant.GetComponent<PlantVars>().lastTimeBought = Time.time;
+                // unselect toolbar plant & destroy dragged object
                 Globals.Instance.SelectedObject = null;
+                Destroy(Globals.Instance.DraggedObject);
+                Globals.Instance.DraggedObject = null;
             }
         }
     }

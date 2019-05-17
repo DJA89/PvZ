@@ -13,25 +13,26 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Start()
     {
         originalColor = gameObject.GetComponent<Renderer>().material.color;
+        GetComponent<PlantVars>().lastTimeBought = -1000; // everything affordable
     }
 
     // Update is called once per frame
     void Update()
     {
         // grey out not affordable plants
-        if (Globals.Instance.SunScore < gameObject.GetComponent<PlantVars>().plantPrice)
-        {
-            // grey out
-            gameObject.GetComponent<Renderer>().material.color = originalColor * greyOutLightness;
-        }
-        else
+        if (plantActive())
         {
             // un-grey out
             gameObject.GetComponent<Renderer>().material.color = originalColor;
         }
+        else
+        {
+            // grey out
+            gameObject.GetComponent<Renderer>().material.color = originalColor * greyOutLightness;
+        }
 
         // move seleted object
-        if (Globals.Instance.SelectedObject != null)
+        if (Globals.Instance.DraggedObject != null)
         {
             // move plant over dragging plane
             Plane plane = new Plane(Vector3.up, Vector3.up * yHeightDraggedObject); // dragging plane
@@ -39,7 +40,7 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             float distance; // the distance from the ray origin to the ray intersection of the plane
             if (plane.Raycast(ray, out distance))
             {
-                Globals.Instance.SelectedObject.transform.position = ray.GetPoint(distance); // distance along the ray
+                Globals.Instance.DraggedObject.transform.position = ray.GetPoint(distance); // distance along the ray
             }
         }
     }
@@ -55,22 +56,24 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (Globals.Instance.SelectedObject == null)
         {
             // select object (to be placed with a click)
-            // (if we can afford it)
-            if (Globals.Instance.SunScore >= gameObject.GetComponent<PlantVars>().plantPrice)
+            if (plantActive())
             {
-                // create copy to select (as child of scene *root*)
-                Globals.Instance.SelectedObject = (GameObject)Instantiate(gameObject, transform.position, transform.rotation);
+                // select & create copy to drag
+                Globals.Instance.SelectedObject = gameObject;
+                Globals.Instance.DraggedObject = (GameObject)Instantiate(gameObject, transform.position, transform.rotation);
                 // disable selected plant
-                DisableEnable.Disable(Globals.Instance.SelectedObject);
+                DisableEnable.Disable(Globals.Instance.DraggedObject);
                 // dont raycast dragged object
-                Globals.Instance.SelectedObject.layer = 2; // Ignore Raycast Layer
+                Globals.Instance.DraggedObject.layer = 2; // Ignore Raycast Layer
             }
         }
         else // we have an object selected, but are clicking the toolbar
         {
             // unselect plant
-            Destroy(Globals.Instance.SelectedObject);
             Globals.Instance.SelectedObject = null;
+            // destroy dragged object
+            Destroy(Globals.Instance.DraggedObject);
+            Globals.Instance.DraggedObject = null;
         }
     }
 
@@ -78,5 +81,14 @@ public class SelectPlant : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         // remove tooltip
         // TODO
+    }
+
+    public bool plantActive()
+    {
+        // returns true if plant is AFFORDABLE and RECHARGED (or never bought)
+        PlantVars vars = GetComponent<PlantVars>();
+        return Globals.Instance.SunScore >= vars.plantPrice
+            && (vars.timesBought == 0
+                || Time.time - vars.lastTimeBought >= vars.rechargeTime);
     }
 }
