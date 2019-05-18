@@ -6,15 +6,23 @@ public class ZombieMove : MonoBehaviour
 {
 
     public float speed;
+    private float frozenSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
+        frozenSpeed = speed / 2;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(-speed, 0, 0);
-        //gameObject.GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(-speed * Time.deltaTime, 0, 0), transform.position);
+        // doesnt slow down
+        transform.Translate(Vector3.back * Time.deltaTime * speed);
+    }
+
+    public void freeze()
+    {
+        // half the movement speed
+        speed = frozenSpeed;
     }
 }
