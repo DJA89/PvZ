@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  frozenSpeed: 0
 --- !u!65 &2585456906917760815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -138,7 +139,7 @@ Rigidbody:
   m_GameObject: {fileID: 1677861435182524139}
   serializedVersion: 2
   m_Mass: 7
-  m_Drag: 0
+  m_Drag: 30
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
