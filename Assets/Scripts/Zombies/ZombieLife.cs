@@ -25,6 +25,7 @@ public class ZombieLife : MonoBehaviour
         if(bullet.GetComponent<BulletVars>().type == 1)
         {
             gameObject.GetComponent<ZombieVars>().state = 1;
+            GetComponent<Renderer>().material.color = Color.blue;
             gameObject.GetComponent<ZombieVars>().frozen_frame = Time.frameCount;
         }
         if (life <= 0)

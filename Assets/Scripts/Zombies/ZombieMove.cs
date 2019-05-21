@@ -23,6 +23,7 @@ public class ZombieMove : MonoBehaviour
             }
             else
             {
+                GetComponent<Renderer>().material.color = Color.white;
                 gameObject.GetComponent<ZombieVars>().state = 0;
             }
         }
