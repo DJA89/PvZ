@@ -11,7 +11,7 @@ public class ZombieVars : MonoBehaviour
 
     private void Start()
     {
-        state = 0;
         frozen_frame = -301;
+        state = 0;
     }
 }
