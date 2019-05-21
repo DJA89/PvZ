@@ -16,12 +16,18 @@ public class ZombieLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void hitByBullet(float hitDamage)
+    public void hitByBullet(GameObject bullet, float hitDamage)
     {
         life -= hitDamage;
+        if(bullet.GetComponent<BulletVars>().type == 1)
+        {
+            gameObject.GetComponent<ZombieVars>().state = 1;
+            GetComponent<Renderer>().material.color = Color.blue;
+            gameObject.GetComponent<ZombieVars>().frozen_frame = Time.frameCount;
+        }
         if (life <= 0)
         {
             Destroy(gameObject, 1.0F);

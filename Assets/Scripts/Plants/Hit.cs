@@ -13,12 +13,7 @@ public class Hit : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // damage zombie
-        collision.gameObject.GetComponent<ZombieLife>().hitByBullet(hitDamage);
-        // freeze zombie, if has freezingBullets
-        if (isFreezing)
-        {
-            collision.gameObject.GetComponent<ZombieMove>().freeze();
-        }
+        collision.gameObject.GetComponent<ZombieLife>().hitByBullet(gameObject, hitDamage);
         // hitting sound
         AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
         // hitting particles
