@@ -6,23 +6,27 @@ public class ZombieMove : MonoBehaviour
 {
 
     public float speed;
-    private float frozenSpeed;
-
+    private int frames_since_frozen;
     // Start is called before the first frame update
     void Start()
     {
-        frozenSpeed = speed / 2;
-    }
-
-    private void Update()
-    {
-        // doesnt slow down
-        transform.Translate(Vector3.back * Time.deltaTime * speed);
+        frames_since_frozen = 0;
     }
 
     public void freeze()
     {
-        // half the movement speed
-        speed = frozenSpeed;
+        float current_speed = speed;
+        if (gameObject.GetComponent<ZombieVars>().state == 1) //frozen
+        {
+            if (Time.frameCount <= gameObject.GetComponent<ZombieVars>().frozen_frame + 300)
+            {
+                current_speed = current_speed / 2;
+            }
+            else
+            {
+                gameObject.GetComponent<ZombieVars>().state = 0;
+            }
+        }
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(-speed, 0, 0);
     }
 }

@@ -16,7 +16,7 @@ public class ZombieLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void hitByBullet(float hitDamage)
@@ -24,7 +24,16 @@ public class ZombieLife : MonoBehaviour
         life -= hitDamage;
         if (life <= 0)
         {
-            Destroy(gameObject, 1.0F);
+            life -= collision.gameObject.GetComponentInParent<PlantVars>().damage;
+            if(collision.gameObject.name == "SnowBullet")
+            {
+                gameObject.GetComponent<ZombieVars>().state = 1;
+                gameObject.GetComponent<ZombieVars>().frozen_frame = Time.frameCount;
+            }
+            if (life <= 0)
+            {
+                Destroy(gameObject, 1.0F);
+            }
         }
     }
 }
