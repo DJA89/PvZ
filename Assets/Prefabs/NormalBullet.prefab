@@ -143,3 +143,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 465b675a7122e744e9a0bbc1bcebfd6d, type: 3}
   splash: {fileID: 6917309602528976461, guid: 536a5f57e785e1041aa01e40658b285d, type: 3}
+  isFreezing: 0
+  hitDamage: 20

@@ -144,6 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 465b675a7122e744e9a0bbc1bcebfd6d, type: 3}
   splash: {fileID: 8705843498911957, guid: faea749f1b3b37045918f2f780b3255e, type: 3}
+  isFreezing: 1
+  hitDamage: 20
 --- !u!1001 &2775001580291681312
 PrefabInstance:
   m_ObjectHideFlags: 0

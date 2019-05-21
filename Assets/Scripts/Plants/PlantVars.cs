@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlantVars : MonoBehaviour
 {
+    // constant for each plant type
     public int plantPrice;
-    public float damage;
-    public int lane;
     public float rechargeTime;
-    
-    // store in toolbar plant for all of same type
+
+    // variable for each plant type: will be set during game
+    public int lane;
+
+    // shared for each plant type: store in toolbar
     public int timesBought;
     public float lastTimeBought;
 }
