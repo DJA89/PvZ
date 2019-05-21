@@ -19,11 +19,11 @@ public class ZombieLife : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void damage(GameObject collision)
     {
-         if(collision.gameObject.tag == "damagingObject")
+         if(collision.tag == "damagingObject")
         {
-            life -= collision.gameObject.GetComponentInParent<PlantVars>().damage;
+            life -= collision.GetComponent<BulletVars>().damage;
             if (life <= 0)
             {
                 Destroy(gameObject, 1.0F);

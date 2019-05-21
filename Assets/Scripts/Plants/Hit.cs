@@ -20,6 +20,7 @@ public class Hit : MonoBehaviour
         Vector3 splashPosition = new Vector3(midPosition.x, bulletPosition.y, midPosition.z);
         ParticleSystem newSplash = (ParticleSystem)Instantiate(splash, splashPosition, transform.rotation);
         // remove bullet
+        other.GetComponent<ZombieLife>().damage(gameObject);
         Destroy(gameObject);
     }
 }
