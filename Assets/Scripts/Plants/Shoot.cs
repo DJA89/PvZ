@@ -7,7 +7,6 @@ public class Shoot : MonoBehaviour
     public GameObject shot;
     public GameObject shotSpawn;
     public AudioClip sound;
-    private float shootingPower = 300.0f;
     float RELATIVE_SFX_VOLUME = 0.5f;
     const float SHOOTING_PERIOD = 1.5f; // seconds
     float timeToShoot= SHOOTING_PERIOD;
@@ -30,7 +29,6 @@ public class Shoot : MonoBehaviour
             timeToShoot = SHOOTING_PERIOD;
             // as the shots are spawned as CHILDREN of the Plant, they automatically inherit the plant.transform
             GameObject obj = (GameObject)Instantiate(shot, shotSpawn.transform.position, shotSpawn.transform.rotation); // just apply spawnPoint transform 
-            obj.GetComponent<Rigidbody>().AddForce(shootingPower, 0.0f, 0.0f); // shoot
             AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME); // play sound
             gameObject.GetComponent<Animator>().SetTrigger("shoot"); // shooting animation
         }

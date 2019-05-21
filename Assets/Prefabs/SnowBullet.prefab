@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8673866082162681018}
   - component: {fileID: 720231895505930307}
   - component: {fileID: 1891560123118591727}
+  - component: {fileID: 4536524807711635211}
   m_Layer: 9
   m_Name: SnowBullet
   m_TagString: damagingObject
@@ -146,6 +147,18 @@ MonoBehaviour:
   splash: {fileID: 8705843498911957, guid: faea749f1b3b37045918f2f780b3255e, type: 3}
   isFreezing: 1
   hitDamage: 20
+--- !u!114 &4536524807711635211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986482980425715809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50f0140f3aa76ac49ac3f5492e6c4947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2775001580291681312
 PrefabInstance:
   m_ObjectHideFlags: 0
