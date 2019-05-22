@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   enable-background="new"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="drawing.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient4534-3-8-0"
+       inkscape:collect="always">
+      <stop
+         id="stop4557"
+         offset="0"
+         style="stop-color:#6d4bc8;stop-opacity:1" />
+      <stop
+         id="stop4559"
+         offset="1"
+         style="stop-color:#463859;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4534-3-8-0"
+       id="linearGradient4550"
+       x1="-96.729591"
+       y1="-73.16581"
+       x2="-96.698051"
+       y2="-95.855225"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:label="Blur Double"
+       inkscape:menu="Blurs"
+       inkscape:menu-tooltip="Overlays two copies with different blur amounts and modifiable blend and composite"
+       style="color-interpolation-filters:sRGB;"
+       id="filter4617">
+      <feGaussianBlur
+         stdDeviation="5"
+         result="fbSourceGraphic"
+         id="feGaussianBlur4609" />
+      <feGaussianBlur
+         stdDeviation="0.01"
+         in="SourceGraphic"
+         result="result1"
+         id="feGaussianBlur4611" />
+      <feComposite
+         in2="result1"
+         operator="arithmetic"
+         in="fbSourceGraphic"
+         k2="0.5"
+         k3="0.5"
+         result="result2"
+         id="feComposite4613" />
+      <feBlend
+         in2="fbSourceGraphic"
+         mode="normal"
+         result="result3"
+         id="feBlend4615" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4787"
+       x="-0.040330447"
+       width="1.0806609"
+       y="-0.1262427"
+       height="1.2524854">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.0408397"
+         id="feGaussianBlur4789" />
+      <feBlend
+         inkscape:collect="always"
+         mode="overlay"
+         in2="BackgroundImage"
+         id="feBlend4791" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4534-3-8-0"
+       id="linearGradient4807"
+       gradientUnits="userSpaceOnUse"
+       x1="-96.729591"
+       y1="-73.16581"
+       x2="-96.698051"
+       y2="-95.855225"
+       gradientTransform="translate(-0.73786724,-38.553563)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.434314"
+     inkscape:cx="307.55844"
+     inkscape:cy="784.1568"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:measure-start="296.865,746.8"
+     inkscape:measure-end="299.184,656.349"
+     inkscape:window-width="1680"
+     inkscape:window-height="935"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       id="rect3699"
+       width="115.66071"
+       height="27.970234"
+       x="-152.1461"
+       y="-98.403404"
+       style="stroke-width:0.26458332"
+       ry="8.3154764"
+       transform="scale(-1)"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <rect
+       ry="7.4839277"
+       style="fill:#ffffff;stroke-width:0.24848302"
+       y="-97.004883"
+       x="-150.9895"
+       height="25.173208"
+       width="113.34751"
+       id="rect3701"
+       transform="scale(-1)"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <rect
+       transform="scale(-1)"
+       id="rect3703"
+       width="111.08056"
+       height="22.655888"
+       x="-149.85603"
+       y="-95.746223"
+       style="fill:url(#linearGradient4550);stroke-width:0.23336247;fill-opacity:1;opacity:1"
+       ry="6.7355351"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <text
+       transform="scale(1.0359742,0.965275)"
+       id="text4607"
+       y="89.746071"
+       x="59.886677"
+       style="font-style:normal;font-weight:normal;font-size:16.78320885px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter4787)"
+       xml:space="preserve"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Trattatello;-inkscape-font-specification:'Trattatello Bold';fill:#000000;stroke-width:0.32;stroke:#000000;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;"
+         y="89.746071"
+         x="59.886677"
+         id="tspan4605"
+         sodipodi:role="line">Try Again</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:16.78320885px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       x="59.886677"
+       y="89.746071"
+       id="text4569"
+       transform="scale(1.0359742,0.965275)"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         sodipodi:role="line"
+         id="tspan4567"
+         x="59.886677"
+         y="89.746071"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Trattatello;-inkscape-font-specification:'Trattatello Bold';fill:#ffffff;stroke-width:0.32;stroke:#000000;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none">Try Again</tspan></text>
+    <rect
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       transform="scale(-1)"
+       ry="8.3154764"
+       style="stroke-width:0.26458332"
+       y="-136.95697"
+       x="-152.88397"
+       height="27.970234"
+       width="115.66071"
+       id="rect4793" />
+    <rect
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       transform="scale(-1)"
+       id="rect4795"
+       width="113.34751"
+       height="25.173208"
+       x="-151.72737"
+       y="-135.55844"
+       style="fill:#ffffff;stroke-width:0.24848302"
+       ry="7.4839277" />
+    <rect
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       ry="6.7355351"
+       style="opacity:1;fill:url(#linearGradient4807);fill-opacity:1;stroke-width:0.23336247"
+       y="-134.29979"
+       x="-150.5939"
+       height="22.655888"
+       width="111.08056"
+       id="rect4797"
+       transform="scale(-1)" />
+    <text
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:16.78320885px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.31999999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4787)"
+       x="59.886677"
+       y="89.746071"
+       id="text4801"
+       transform="matrix(1.0359742,0,0,0.965275,-2.6178166,41.95565)"><tspan
+         sodipodi:role="line"
+         id="tspan4799"
+         x="59.886677"
+         y="89.746071"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Trattatello;-inkscape-font-specification:'Trattatello Bold';fill:#000000;stroke:#000000;stroke-width:0.31999999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Mein Menu</tspan></text>
+    <text
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       transform="scale(1.0359742,0.965275)"
+       id="text4805"
+       y="133.11754"
+       x="56.507492"
+       style="font-style:normal;font-weight:normal;font-size:16.78320885px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.31999999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Trattatello;-inkscape-font-specification:'Trattatello Bold';fill:#ffffff;stroke:#000000;stroke-width:0.31999999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         y="133.11754"
+         x="56.507492"
+         id="tspan4803"
+         sodipodi:role="line">Main Menu</tspan></text>
+  </g>
+</svg>

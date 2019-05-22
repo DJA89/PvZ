@@ -6,6 +6,7 @@ public class Music : MonoBehaviour
 {
     public AudioClip mainMenuMusic;
     public AudioClip dayLevelMusic;
+    public AudioClip emptyMusic;
     public float musicFadeTime = 0.8F;
 
     enum Fade { In, Out };
@@ -33,6 +34,11 @@ public class Music : MonoBehaviour
     public void playDayLevelMusic()
     {
         fadeOutChangeMusic(dayLevelMusic);
+    }
+
+    public void playEmptyMusic()
+    {
+        fadeOutChangeMusic(emptyMusic);
     }
 
     private void fadeOutChangeMusic(AudioClip newMusic)
