@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -198,4 +198,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 8300000, guid: 815e66f5dcba85243af575e4c444475d, type: 3}
   dayLevelMusic: {fileID: 8300000, guid: 76817b803c6a8d1488503d6840633442, type: 3}
+  emptyMusic: {fileID: 8300000, guid: 703e626b43ab0428bb40f9a82dbbb8e9, type: 3}
   musicFadeTime: 0.8
