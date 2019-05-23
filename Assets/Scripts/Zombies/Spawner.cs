@@ -7,6 +7,8 @@ public class Spawner : MonoBehaviour
 
     public GameObject zombie1;
     public GameObject zombie2;
+    public GameObject zombie3;
+
     public TextAsset levelFile;
     public Vector3 firstCell;
     public GameObject[] lanes;
@@ -34,9 +36,10 @@ public class Spawner : MonoBehaviour
         Vector3 cellDiff = new Vector3(0, 0, 3f);
         cells = new Vector3[5];
         cells[0] = firstCell; // new Vector3(-8f, -2f, -2f);
-        zombies = new GameObject[2];
+        zombies = new GameObject[3];
         zombies[0] = zombie1;
         zombies[1] = zombie2;
+        zombies[2] = zombie3;
         //Se puede agregar un zombie con cabeza de planta que dispare
 
         int i;
@@ -77,6 +80,10 @@ public class Spawner : MonoBehaviour
                 if (level[currentLine][j] != 0)
                 {
                     GameObject newZombie = (GameObject) Instantiate(zombies[currentZombie], cells[j-1], transform.rotation, transform);
+                    if (level[currentLine][j] == 3)
+                    {
+                        newZombie.transform.Rotate(new Vector3(0, 90, 0));
+                    }
                     newZombie.transform.parent = lanes[j-1].transform;
                 }
             }
