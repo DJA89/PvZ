@@ -26,6 +26,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TextAsset levelFile = Globals.Instance.GetCurrentLevel();
         lanes = new GameObject[5];
 
         for (int k = 0; k < 5; k++)

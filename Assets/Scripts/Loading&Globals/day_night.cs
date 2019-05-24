@@ -5,12 +5,12 @@ using System;
 
 public class day_night : MonoBehaviour
 {
-    public Color nightLightColor;
+    public Color nightLightColot;
 
     // Start is called before the first frame update
     void Start()
     {
-        TextAsset levelFile = Globals.Instance.currentLevelFile;
+        TextAsset levelFile = Globals.Instance.GetCurrentLevel();
         string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
         if (lines[0] == "1") //it's night
         {
@@ -23,6 +23,6 @@ public class day_night : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

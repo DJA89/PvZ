@@ -185,6 +185,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6038b56a75bf5914294e918ac35d87fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
+  levels: []
+  level1: {fileID: 4900000, guid: 382978fc8f3524e71a22ea00e40b48d0, type: 3}
+  level2: {fileID: 4900000, guid: 0e0e05583653e46838c3fe5ecd46b4fb, type: 3}
+  level3: {fileID: 4900000, guid: 6219514d43f134c5b8020ef4560f78ae, type: 3}
+  level4: {fileID: 4900000, guid: f853289937a984f41a7af76a0933a64a, type: 3}
+  level5: {fileID: 4900000, guid: c5ed41231e068498f8f28d46f94ed0cf, type: 3}
+  level6: {fileID: 4900000, guid: 3a9bffe82b0d3415cbfb22ab1586a8a0, type: 3}
   musicVolume: 0.03
   sfxVolume: 0.3
   currentLevel: 0

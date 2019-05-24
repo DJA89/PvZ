@@ -13,6 +13,14 @@ public class MenuManager : MonoBehaviour
         LoadMainMenu();
     }
 
+    // load level 1-6
+    public void LoadLevel(int levelID)
+    {
+        Globals.Instance.currentLevel = levelID;
+        Globals.Instance.App.GetComponent<Music>().playDayLevelMusic();
+        SceneManager.LoadScene("Main");
+    }
+
     public void LoadMainMenu()
     {
         mainMenuPlane.SetActive(true);

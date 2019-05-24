@@ -15,7 +15,7 @@ public class SunSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TextAsset levelFile = Globals.Instance.currentLevelFile;
+        TextAsset levelFile = Globals.Instance.GetCurrentLevel();
         string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, System.StringSplitOptions.None);
         if (lines[0] == "1") //it's night
         {
