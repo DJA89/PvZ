@@ -6,6 +6,7 @@ public class ZombieMove : MonoBehaviour
 {
 
     public float speed;
+    public bool isPeashooterZombie = false;
     public AudioClip[] chomps;
     float RELATIVE_SFX_VOLUME = 0.1f;
     private float startChompingSound;
@@ -14,6 +15,10 @@ public class ZombieMove : MonoBehaviour
     void Start()
     {
         startChompingSound = Time.time;
+        if (isPeashooterZombie)
+        {
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
     }
 
     public void Update()
