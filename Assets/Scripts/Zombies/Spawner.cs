@@ -69,7 +69,8 @@ public class Spawner : MonoBehaviour
             j = 0;
             foreach (string data in line.Split(','))
             {
-                level[i][j] = float.Parse(data);
+                Debug.Log(data.Trim());
+                level[i][j] = float.Parse(data.Trim(), System.Globalization.CultureInfo.InvariantCulture);
                 j++;
             }
         }
