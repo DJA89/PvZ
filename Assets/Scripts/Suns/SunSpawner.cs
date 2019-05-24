@@ -54,8 +54,6 @@ public class SunSpawner : MonoBehaviour
             //Debug.Log("cellMin: " + cellMin + "; CellMax: " + cellMax + "; Value: " + cells[cellMin, cellMax]);
 
             GameObject newSun = (GameObject) Instantiate(sun, cells[cellMin, cellMax], transform.rotation, transform);
-
-            newSun.GetComponent<Renderer>().material.SetInt("_ZWrite", 2);
         }
     }
 }

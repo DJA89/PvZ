@@ -30,7 +30,7 @@ public class SunflowerMakeSun : MonoBehaviour
         }
         if (Time.time - lastSpawnTime > spawnPeriod)
         {
-            GameObject newSun = (GameObject)Instantiate(sun, transform.position, transform.rotation, transform);
+            GameObject newSun = (GameObject)Instantiate(sun, transform.position, transform.rotation, transform.parent);
             float xForce = Random.Range(-100, 100);
             float zForce = Random.Range(-100, 100);
             newSun.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForce, velocity, zForce));
