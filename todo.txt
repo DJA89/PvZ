@@ -1,0 +1,18 @@
++ nicer planter model
++ design 2 more day levels
+
++ zombie death animation (rotation)
++ win condition
+
++ zombie walking animation (see crossy roads)
+  * state machine with
+
+D night scene
+  * lower light + blue light
+  * last plant (mushroom)
+
+
+? growing night mushroom
+? zombie head visible
+? plant toolbar tooltips
+? ola-metro
