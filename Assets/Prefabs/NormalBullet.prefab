@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2397389812431780543}
   - component: {fileID: 6861652037452646169}
   - component: {fileID: 6720739731076421921}
+  - component: {fileID: 5699878025678588421}
   m_Layer: 15
   m_Name: NormalBullet
   m_TagString: damagingObject
@@ -172,3 +173,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &5699878025678588421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5801586988641022494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dab1f095e5aa4d34b7763ea8be13c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
