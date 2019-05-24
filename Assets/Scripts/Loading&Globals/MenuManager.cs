@@ -13,18 +13,8 @@ public class MenuManager : MonoBehaviour
         LoadMainMenu();
     }
 
-    // load level 1-6
-    public void LoadLevel(int levelID)
-    {
-        Globals.Instance.App.GetComponent<Music>().playDayLevelMusic();
-        //string levelName = "level" + levelID;
-        //SceneManager.LoadScene(levelName, LoadSceneMode.Single);
-        SceneManager.LoadScene("Main");
-    }
-
     public void LoadMainMenu()
     {
-        Globals.Instance.App.GetComponent<Music>().playMainMenuMusic();
         mainMenuPlane.SetActive(true);
         levelMenuPlane.SetActive(false);
     }
@@ -35,14 +25,23 @@ public class MenuManager : MonoBehaviour
         levelMenuPlane.SetActive(true);
     }
 
+    public void LoadNextLevel()
+    {
+        Globals.Instance.controller.LoadNextLevel();
+    }
+
+    public void LoadLevel(int levelID)
+    {
+        Globals.Instance.controller.LoadLevel(levelID);
+    }
+
+    public void ShowOptions()
+    {
+        // TODO
+    }
+
     public void QuitGame()
     {
-        #if UNITY_EDITOR
-            // Application.Quit() does not work in the editor so
-            // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+        Globals.Instance.controller.QuitGame();
     }
 }

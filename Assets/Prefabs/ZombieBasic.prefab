@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 1677861435181529835}
   - component: {fileID: 1677861435180529707}
   - component: {fileID: 1677861435191907627}
-  - component: {fileID: 7607139824212856072}
-  - component: {fileID: 2585456906917760815}
   - component: {fileID: 5431480721820638231}
+  - component: {fileID: 2585456906917760815}
   - component: {fileID: 917550634821590990}
   - component: {fileID: 2310294840901636226}
+  - component: {fileID: 7607139824212856072}
   - component: {fileID: 6187960477828650096}
   - component: {fileID: 7004739890340272010}
   m_Layer: 11
@@ -34,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677861435182524139}
   m_LocalRotation: {x: 0.000000059604645, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2685177, y: 2.559, z: 0.98}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -104,32 +104,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7607139824212856072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677861435182524139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03b8ccc377c0f468782bd4e8fceea2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.5
---- !u!65 &2585456906917760815
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677861435182524139}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.61028624, y: 1.0987512, z: 0.4120236}
-  m_Center: {x: -0.0026416779, y: 0.54936963, z: 0.050202757}
 --- !u!65 &5431480721820638231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -143,6 +117,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.800003, y: 1.200012, z: 0.6402267}
   m_Center: {x: -0.0000014901161, y: 0.6, z: 0.029988632}
+--- !u!65 &2585456906917760815
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677861435182524139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61028624, y: 1.0987512, z: 0.4120236}
+  m_Center: {x: -0.0026416779, y: 0.54936963, z: 0.050202757}
 --- !u!54 &917550634821590990
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,6 +161,24 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &7607139824212856072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677861435182524139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b8ccc377c0f468782bd4e8fceea2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  isPeashooterZombie: 0
+  chomps:
+  - {fileID: 8300000, guid: 4eefcf8679c3eb04f92b7c8e703bb43f, type: 3}
+  - {fileID: 8300000, guid: 5a6e2be2bf1f4a54b88354c9f1bf505c, type: 3}
+  - {fileID: 8300000, guid: cfe62b90448748f4abad7e7c5796e72c, type: 3}
 --- !u!114 &6187960477828650096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombie: {fileID: 1677861435182524139}
   life: 200
+  freezeSound: {fileID: 8300000, guid: bad5efcfacb70da49b0aa54bd022b1b1, type: 3}
 --- !u!114 &7004739890340272010
 MonoBehaviour:
   m_ObjectHideFlags: 0

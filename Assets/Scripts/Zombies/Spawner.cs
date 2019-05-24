@@ -9,15 +9,19 @@ public class Spawner : MonoBehaviour
     public GameObject zombie2;
     public GameObject zombie3;
 
-    public TextAsset levelFile;
     public Vector3 firstCell;
     public GameObject[] lanes;
 
     private Vector3[] cells;
-    private int[][] level;
+    private float[][] level;
     private int currentLine;
     private GameObject[] zombies;
-    private int levelStartFramecount;
+    private float levelStartTime;
+
+    public AudioClip zombiesAreComingSound;
+    private bool zombiesAreComing = false;
+    private bool firstZombieSpawned = false;
+    float RELATIVE_SFX_VOLUME = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +36,7 @@ public class Spawner : MonoBehaviour
 
         }
 
-        levelStartFramecount = Time.frameCount;
+        levelStartTime = Time.time;
         Vector3 cellDiff = new Vector3(0, 0, 3f);
         cells = new Vector3[5];
         cells[0] = firstCell; // new Vector3(-8f, -2f, -2f);
@@ -47,8 +51,9 @@ public class Spawner : MonoBehaviour
         {
             cells[i] = cells[i - 1] + cellDiff;
         }
+        TextAsset levelFile = Globals.Instance.currentLevelFile;
         string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
-        level = new int[lines.Length][];
+        level = new float[lines.Length][];
 
         i = -2;
         int j;
@@ -60,11 +65,11 @@ public class Spawner : MonoBehaviour
             {
                 continue;
             }
-            level[i] = new int[6];
+            level[i] = new float[6];
             j = 0;
             foreach (string data in line.Split(','))
             {
-                level[i][j] = System.Convert.ToInt32(data);
+                level[i][j] = float.Parse(data.Trim(), System.Globalization.CultureInfo.InvariantCulture);
                 j++;
             }
         }
@@ -74,13 +79,22 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int currentFrame = Time.frameCount - levelStartFramecount;
-        if (currentLine < level.Length && level[currentLine][0] == currentFrame)
+        float currentTime = Time.time - levelStartTime;
+
+        // before first zombie
+        if (!zombiesAreComing && currentTime >= level[currentLine][0] - 4)
+        {
+            // "the zombies are coming"
+            AudioSource.PlayClipAtPoint(zombiesAreComingSound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
+            zombiesAreComing = true;
+        }
+
+        if (currentLine < level.Length && currentTime >= level[currentLine][0])
         {
             int currentZombie;
             for (int j = 1; j < 6; j++)
             {
-                currentZombie = level[currentLine][j] - 1;
+                currentZombie = (int) level[currentLine][j] - 1;
                 if (level[currentLine][j] != 0)
                 {
                     GameObject newZombie = (GameObject) Instantiate(zombies[currentZombie], cells[j-1], transform.rotation, transform);
@@ -89,6 +103,13 @@ public class Spawner : MonoBehaviour
                         newZombie.transform.Rotate(new Vector3(0, 90, 0));
                     }
                     newZombie.transform.parent = lanes[j-1].transform;
+                    // on first zombie
+                    if (!firstZombieSpawned)
+                    {
+                        // start playing zombie groans
+                        GetComponent<ZombieGroans>().zombiesComing = true;
+                        firstZombieSpawned = true;
+                    }
                 }
             }
             currentLine++;

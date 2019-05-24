@@ -6,9 +6,19 @@ public class ZombieMove : MonoBehaviour
 {
 
     public float speed;
+    public bool isPeashooterZombie = false;
+    public AudioClip[] chomps;
+    float RELATIVE_SFX_VOLUME = 0.1f;
+    private float startChompingSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        startChompingSound = Time.time;
+        if (isPeashooterZombie)
+        {
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
     }
 
     public void Update()
@@ -28,6 +38,23 @@ public class ZombieMove : MonoBehaviour
             }
         }
         transform.Translate(Vector3.back * Time.deltaTime * current_speed);
-        //gameObject.GetComponent<Rigidbody>().velocity = new Vector3(-speed, 0, 0);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        GameObject plant = collision.gameObject;
+        if (collision.gameObject.tag == "Plant")
+        {
+            // damage plant
+            collision.gameObject.GetComponent<PlantLife>().bittenByZombie(GetComponent<ZombieVars>().damage);
+            // play chomping sound
+            int chompID = Mathf.CeilToInt(Random.Range(0, chomps.Length));
+            AudioClip thisChomp = chomps[chompID];
+            if (Time.time > startChompingSound + 0.7 * thisChomp.length)
+            {
+                AudioSource.PlayClipAtPoint(thisChomp, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
+                startChompingSound = Time.time;
+            }
+        }
     }
 }
