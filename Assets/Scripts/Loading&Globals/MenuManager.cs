@@ -16,9 +16,8 @@ public class MenuManager : MonoBehaviour
     // load level 1-6
     public void LoadLevel(int levelID)
     {
+        Globals.Instance.currentLevel = levelID;
         Globals.Instance.App.GetComponent<Music>().playDayLevelMusic();
-        //string levelName = "level" + levelID;
-        //SceneManager.LoadScene(levelName, LoadSceneMode.Single);
         SceneManager.LoadScene("Main");
     }
 

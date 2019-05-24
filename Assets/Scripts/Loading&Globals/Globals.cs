@@ -18,7 +18,18 @@ public class Globals : MonoBehaviour {
     // get and change sun score
     private int _sunScore = 1000; // enough to buy initial sunflower
     public static readonly int MAX_SCORE = 999;
+    public int currentLevel;
+    public TextAsset[] levels;
+    public TextAsset level1;
+    public TextAsset level2;
+    public TextAsset level3;
+    public TextAsset level4;
+    public TextAsset level5;
+    public TextAsset level6;
+
+
     public int SunScore
+
     {
         get {
             return _sunScore;
@@ -44,5 +55,21 @@ public class Globals : MonoBehaviour {
             Instance = this;
         }
         App = gameObject;
+    }
+
+    private void Start()
+    {
+        levels = new TextAsset[6];
+        levels[0] = level1;
+        levels[1] = level2;
+        levels[2] = level3;
+        levels[3] = level4;
+        levels[4] = level5;
+        levels[5] = level6;
+    }
+
+    public TextAsset GetCurrentLevel()
+    {
+        return levels[currentLevel - 1];
     }
 }

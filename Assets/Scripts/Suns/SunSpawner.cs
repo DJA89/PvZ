@@ -11,12 +11,12 @@ public class SunSpawner : MonoBehaviour
     public readonly float maxSunSpawnTime = 8; // in seconds
     public Vector3 firstCell;
     private Vector3[,] cells;
-    public TextAsset levelFile;
 
     // Start is called before the first frame update
     void Start()
 
     {
+        TextAsset levelFile = Globals.Instance.GetCurrentLevel();
         string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, System.StringSplitOptions.None);
         if (lines[0] == "1") //it's night
         {
