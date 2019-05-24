@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 919431002898111267}
   - component: {fileID: 919431002897013219}
   - component: {fileID: 919431002904573155}
-  - component: {fileID: 3351034712405887698}
   - component: {fileID: 8925554620995569438}
   - component: {fileID: 2383616826050256694}
+  - component: {fileID: 3351034712405887698}
   - component: {fileID: 8392690646347569518}
   - component: {fileID: 1174689011545407500}
   m_Layer: 11
@@ -102,20 +102,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3351034712405887698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919431002895075107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03b8ccc377c0f468782bd4e8fceea2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.25
-  frozenSpeed: 0
 --- !u!54 &8925554620995569438
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,6 +131,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2336648, y: 2.2108395, z: 0.8455698}
   m_Center: {x: 0.010772626, y: 1.1054199, z: 0.101113826}
+--- !u!114 &3351034712405887698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919431002895075107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b8ccc377c0f468782bd4e8fceea2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.25
+  chomps:
+  - {fileID: 8300000, guid: 4eefcf8679c3eb04f92b7c8e703bb43f, type: 3}
+  - {fileID: 8300000, guid: 5a6e2be2bf1f4a54b88354c9f1bf505c, type: 3}
+  - {fileID: 8300000, guid: cfe62b90448748f4abad7e7c5796e72c, type: 3}
 --- !u!114 &8392690646347569518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,3 +175,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1000
+  state: 0
+  frozen_frame: 0

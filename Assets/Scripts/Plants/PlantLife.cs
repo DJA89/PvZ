@@ -17,15 +17,12 @@ public class PlantLife : MonoBehaviour
 
     }
 
-    private void OnCollisionStay(Collision collision)
+    public void bittenByZombie(float damage)
     {
-        if (collision.gameObject.tag == "zombie")
+        life -= damage;
+        if (life <= 0)
         {
-            life -= collision.gameObject.GetComponent<ZombieVars>().damage;
-            if (life <= 0)
-            {
-                Destroy(gameObject, 0F);
-            }
+            Destroy(gameObject, 0F);
         }
     }
 
