@@ -50,11 +50,16 @@ public class Spawner : MonoBehaviour
         string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
         level = new int[lines.Length][];
 
-        i = 0;
+        i = -2;
         int j;
 
         foreach (string line in lines)
         {
+            i++;
+            if (i == -1)
+            {
+                continue;
+            }
             level[i] = new int[6];
             j = 0;
             foreach (string data in line.Split(','))
@@ -62,7 +67,6 @@ public class Spawner : MonoBehaviour
                 level[i][j] = System.Convert.ToInt32(data);
                 j++;
             }
-            i++;
         }
         currentLine = 0;
     }
