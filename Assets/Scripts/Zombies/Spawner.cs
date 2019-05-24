@@ -9,7 +9,6 @@ public class Spawner : MonoBehaviour
     public GameObject zombie2;
     public GameObject zombie3;
 
-    public TextAsset levelFile;
     public Vector3 firstCell;
     public GameObject[] lanes;
 
@@ -52,6 +51,7 @@ public class Spawner : MonoBehaviour
         {
             cells[i] = cells[i - 1] + cellDiff;
         }
+        TextAsset levelFile = Globals.Instance.currentLevelFile;
         string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
         level = new float[lines.Length][];
 
@@ -69,7 +69,6 @@ public class Spawner : MonoBehaviour
             j = 0;
             foreach (string data in line.Split(','))
             {
-                Debug.Log(data.Trim());
                 level[i][j] = float.Parse(data.Trim(), System.Globalization.CultureInfo.InvariantCulture);
                 j++;
             }

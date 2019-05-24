@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4419549, g: 0.49091595, b: 0.5708601, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,9 +122,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8268925}
   - component: {fileID: 8268924}
-  - component: {fileID: 8268926}
-  - component: {fileID: 8268928}
+  - component: {fileID: 8268927}
   - component: {fileID: 8268929}
+  - component: {fileID: 8268926}
   m_Layer: 0
   m_Name: __app
   m_TagString: Untagged
@@ -167,10 +167,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8268923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03bb041d78f8aa945b7383a9a6a6a386, type: 3}
+  m_Script: {fileID: 11500000, guid: 6674b344d918aef45bc0d093900a07fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8268928
+  levels:
+  - {fileID: 4900000, guid: c3f45cf41f1093846a7976fbac602f7f, type: 3}
+  - {fileID: 4900000, guid: 382978fc8f3524e71a22ea00e40b48d0, type: 3}
+--- !u!114 &8268927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,6 +187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicVolume: 0.03
   sfxVolume: 0.3
+  currentLevel: 0
+  currentLevelFile: {fileID: 0}
 --- !u!114 &8268929
 MonoBehaviour:
   m_ObjectHideFlags: 0
