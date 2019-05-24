@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour
         {
             cells[i] = cells[i - 1] + cellDiff;
         }
-        TextAsset levelFile = Globals.Instance.currentLevelFile;
+
         string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
         level = new float[lines.Length][];
 
@@ -80,17 +80,16 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float currentTime = Time.time - levelStartTime;
 
         // before first zombie
-        if (!zombiesAreComing && currentTime >= level[currentLine][0] - 4)
+        if (!zombiesAreComing && Time.frameCount >= level[currentLine][0] - 240)
         {
             // "the zombies are coming"
             AudioSource.PlayClipAtPoint(zombiesAreComingSound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
             zombiesAreComing = true;
         }
 
-        if (currentLine < level.Length && currentTime >= level[currentLine][0])
+        if (currentLine < level.Length && Time.frameCount >= level[currentLine][0])
         {
             int currentZombie;
             for (int j = 1; j < 6; j++)

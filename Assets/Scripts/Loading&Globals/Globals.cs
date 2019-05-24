@@ -52,8 +52,6 @@ public class Globals : MonoBehaviour {
     public float sfxVolume = 0.3f;
 
     // currently playing OR last successfully ended level
-    public int currentLevel = 0;
-    public TextAsset currentLevelFile;
 
     private void Awake()
     {

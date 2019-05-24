@@ -5,7 +5,7 @@ using System;
 
 public class day_night : MonoBehaviour
 {
-    public Color nightLightColot;
+    public Color nightLightColor;
 
     // Start is called before the first frame update
     void Start()
