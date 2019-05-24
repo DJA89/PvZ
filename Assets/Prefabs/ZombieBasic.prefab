@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  isPeashooterZombie: 0
   chomps:
   - {fileID: 8300000, guid: 4eefcf8679c3eb04f92b7c8e703bb43f, type: 3}
   - {fileID: 8300000, guid: 5a6e2be2bf1f4a54b88354c9f1bf505c, type: 3}
@@ -192,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombie: {fileID: 1677861435182524139}
   life: 200
+  freezeSound: {fileID: 8300000, guid: bad5efcfacb70da49b0aa54bd022b1b1, type: 3}
 --- !u!114 &7004739890340272010
 MonoBehaviour:
   m_ObjectHideFlags: 0

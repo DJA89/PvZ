@@ -7,6 +7,9 @@ public class ZombieLife : MonoBehaviour
 
     public GameObject zombie;
     public float life;
+    public AudioClip freezeSound;
+    float RELATIVE_SFX_VOLUME = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +27,13 @@ public class ZombieLife : MonoBehaviour
         life -= hitDamage;
         if(bullet.GetComponent<BulletVars>().type == 1)
         {
-            gameObject.GetComponent<ZombieVars>().state = 1;
-            GetComponent<Renderer>().material.color = Color.blue;
-            gameObject.GetComponent<ZombieVars>().frozen_frame = Time.frameCount;
+            if (gameObject.GetComponent<ZombieVars>().state != 1)
+            {
+                gameObject.GetComponent<ZombieVars>().state = 1; // freeze zombie
+                GetComponent<Renderer>().material.color = Color.blue;
+                gameObject.GetComponent<ZombieVars>().frozen_frame = Time.frameCount;
+                AudioSource.PlayClipAtPoint(freezeSound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
+            }
         }
         if (life <= 0)
         {

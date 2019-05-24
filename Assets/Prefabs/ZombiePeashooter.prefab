@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombie: {fileID: 8783145524351985644}
   life: 200
+  freezeSound: {fileID: 8300000, guid: bad5efcfacb70da49b0aa54bd022b1b1, type: 3}
 --- !u!114 &6399507425621715981
 MonoBehaviour:
   m_ObjectHideFlags: 0
