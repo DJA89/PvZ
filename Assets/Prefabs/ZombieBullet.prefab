@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6346387930600473311}
   - component: {fileID: 2741453726101719708}
   - component: {fileID: 5100262766732411153}
+  - component: {fileID: 831160524926051161}
   m_Layer: 14
   m_Name: ZombieBullet
   m_TagString: Untagged
@@ -157,3 +158,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000008, y: 0.99999994, z: 1.0000019}
   m_Center: {x: -0.0009935199, y: 0.0009909867, z: -0.0019880084}
+--- !u!114 &831160524926051161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409738062271529894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dab1f095e5aa4d34b7763ea8be13c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
