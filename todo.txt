@@ -1,12 +1,12 @@
 + nicer planter model
 + design 2 more day levels
 
++ frozen zombies too blue
++ zombieshooter frozen shoot slower
+
 + zombie death animation (rotation)
 + zombie health bar
 + win condition
-
-+ zombie walking animation (see crossy roads)
-  * state machine with
 
 D night scene
   D lower light + blue light

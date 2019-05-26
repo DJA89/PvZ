@@ -18,6 +18,7 @@ public class ApplyAnimation : MonoBehaviour
 
     private Vector3 lastFramePosition;
     private Quaternion startingRotation;
+    private Vector3 initialScale;
 
     // Start is called before the first frame update
     void Start()
@@ -25,18 +26,16 @@ public class ApplyAnimation : MonoBehaviour
         // init last position
         lastFramePosition = transform.localPosition;
         startingRotation = transform.rotation;
+        initialScale = transform.parent.lossyScale;
     }
 
     private void LateUpdate()
     {
-        // get current, compute difference
-        Vector3 currentFramePosition = transform.localPosition;
-        Vector3 positionDifference = currentFramePosition - lastFramePosition;
         // add position, multiply rotations and apply scale to parent
-        transform.parent.localPosition += positionDifference;
+        transform.parent.localPosition += transform.localPosition - lastFramePosition;
         transform.parent.localRotation = startingRotation * transform.localRotation;
-        transform.parent.localScale = transform.localScale;
+        transform.parent.localScale = Vector3.Scale(initialScale, transform.localScale);
         // iterate
-        lastFramePosition = currentFramePosition;
+        lastFramePosition = transform.localPosition;
     }
 }
