@@ -8,17 +8,23 @@ public class ZombieShoot : MonoBehaviour
     public GameObject shotSpawn;
     public AudioClip sound;
     float RELATIVE_SFX_VOLUME = 0.5f;
-    const float SHOOTING_PERIOD = 1.5f; // seconds
-    float timeToShoot = SHOOTING_PERIOD;
+    const float NORMAL_SHOOTING_PERIOD = 1.5f; // seconds
+    const float FROZEN_SHOOTING_PERIOD = 3f; // seconds
+    float timeToShoot = NORMAL_SHOOTING_PERIOD;
 
     // Update is called once per frame
     void Update()
     {
-
         timeToShoot -= Time.deltaTime;
         if (timeToShoot <= 0.0f)
         {
-            timeToShoot = SHOOTING_PERIOD;
+            if (GetComponent<ZombieVars>().state == 1) // frozen
+            {
+                timeToShoot = FROZEN_SHOOTING_PERIOD;
+            } else
+            {
+                timeToShoot = NORMAL_SHOOTING_PERIOD;
+            }
             // as the shots are spawned as CHILDREN of the Plant, they automatically inherit the plant.transform
             GameObject obj = (GameObject)Instantiate(shot, shotSpawn.transform.position, shotSpawn.transform.rotation); // just apply spawnPoint transform 
             AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME); // play sound

@@ -1,8 +1,5 @@
-+ nicer planter model
++ nicer planter model with BORDER between sun and plants
 + design 2 more day levels
-
-+ frozen zombies too blue
-+ zombieshooter frozen shoot slower
 
 + zombie death animation (rotation)
 + zombie health bar
