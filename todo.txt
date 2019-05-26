@@ -2,17 +2,18 @@
 + design 2 more day levels
 
 + zombie death animation (rotation)
++ zombie health bar
 + win condition
 
 + zombie walking animation (see crossy roads)
   * state machine with
 
 D night scene
-  * lower light + blue light
+  D lower light + blue light
   * last plant (mushroom)
 
 
 ? growing night mushroom
-? zombie head visible
+? zombie head visible and dropping
 ? plant toolbar tooltips
 ? ola-metro
