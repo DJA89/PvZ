@@ -27,13 +27,10 @@ public class ZombieLife : MonoBehaviour
         life -= hitDamage;
         if(bullet.GetComponent<BulletVars>().type == 1)
         {
-            if (gameObject.GetComponent<ZombieVars>().state != 1)
-            {
-                gameObject.GetComponent<ZombieVars>().state = 1; // freeze zombie
-                GetComponent<Renderer>().material.color = Color.blue;
-                gameObject.GetComponent<ZombieVars>().frozen_frame = Time.frameCount;
-                AudioSource.PlayClipAtPoint(freezeSound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
-            }
+            gameObject.GetComponent<ZombieVars>().state = 1; // freeze zombie
+            GetComponent<Renderer>().material.color = Color.blue;
+            gameObject.GetComponent<ZombieVars>().frozen_frame = Time.frameCount;
+            AudioSource.PlayClipAtPoint(freezeSound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
         }
         if (life <= 0)
         {
