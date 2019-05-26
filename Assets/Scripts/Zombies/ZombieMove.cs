@@ -37,7 +37,7 @@ public class ZombieMove : MonoBehaviour
                 gameObject.GetComponent<ZombieVars>().state = 0;
             }
         }
-        transform.Translate(Vector3.back * Time.deltaTime * current_speed);
+        transform.position += (Vector3.left * Time.deltaTime * current_speed);
     }
 
     private void OnCollisionStay(Collision collision)
