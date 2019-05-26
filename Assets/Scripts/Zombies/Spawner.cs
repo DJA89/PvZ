@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour
         }
         TextAsset levelFile = Globals.Instance.currentLevelFile;
         string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
-        level = new float[lines.Length][];
+        level = new float[lines.Length - 1][];
 
         i = -2;
         int j;
