@@ -17,9 +17,24 @@ public class Globals : MonoBehaviour {
     public GameObject SelectedObject { get; set; }
     // get and change dragged object
     public GameObject DraggedObject { get; set; }
+    // reset selected and dragged object
+    public void ResetPlantSelection()
+    {
+        // only null (is pointer to toolbar plant)
+        if (Globals.Instance.SelectedObject != null)
+        {
+            Globals.Instance.SelectedObject = null;
+        }
+        // destroy and null
+        if (Globals.Instance.DraggedObject != null)
+        {
+            Destroy(Globals.Instance.DraggedObject);
+            Globals.Instance.DraggedObject = null;
+        }
+    }        
 
-    // get and change sun score
-    private int _sunScore = 1000; // enough to buy initial sunflower
+// get and change sun score
+private int _sunScore;
     public static readonly int MAX_SCORE = 999;
     public int SunScore
     {
@@ -35,14 +50,15 @@ public class Globals : MonoBehaviour {
     public GameObject SunIcon { get; set; }
 
     // current music volume
-    public float musicVolume = 0.03f;
+    [ReadOnlyInInspector] public float musicVolume = 0.03f;
 
     // current SFX volume
-    public float sfxVolume = 0.3f;
+    [ReadOnlyInInspector] public float sfxVolume = 0.3f;
 
-    // currently playing OR last successfully ended level
-    public int currentLevel = 0;
-    public TextAsset currentLevelFile;
+    // last played OR currently playing level
+    internal int currentLevel = 1;
+    internal TextAsset currentLevelFile;
+    internal int zombiesLeftInLevel;
 
     private void Awake()
     {

@@ -9,6 +9,7 @@ public class ZombieLife : MonoBehaviour
     public float life;
     public AudioClip freezeSound;
     float RELATIVE_SFX_VOLUME = 0.1f;
+    private bool alreadyDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +32,11 @@ public class ZombieLife : MonoBehaviour
             gameObject.GetComponent<ZombieVars>().frozen_frame = Time.frameCount;
             AudioSource.PlayClipAtPoint(freezeSound, Camera.main.transform.position, Globals.Instance.sfxVolume * RELATIVE_SFX_VOLUME);
         }
-        if (life <= 0)
+        if (life <= 0 && !alreadyDead)
         {
             Destroy(gameObject, 1.0F);
+            Globals.Instance.zombiesLeftInLevel--;
+            alreadyDead = true;
         }
     }
 }

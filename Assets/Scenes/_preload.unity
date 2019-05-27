@@ -171,8 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 4900000, guid: c3f45cf41f1093846a7976fbac602f7f, type: 3}
-  - {fileID: 4900000, guid: 382978fc8f3524e71a22ea00e40b48d0, type: 3}
+  - {fileID: 4900000, guid: 53a298528a7023949bb4d976c05690e1, type: 3}
 --- !u!114 &8268927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +188,7 @@ MonoBehaviour:
   sfxVolume: 0.3
   currentLevel: 0
   currentLevelFile: {fileID: 0}
+  zombiesLeftInLevel: 0
 --- !u!114 &8268929
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,9 +25,9 @@ public class MenuManager : MonoBehaviour
         levelMenuPlane.SetActive(true);
     }
 
-    public void LoadNextLevel()
+    public void LoadThisLevel()
     {
-        Globals.Instance.controller.LoadNextLevel();
+        Globals.Instance.controller.RestartCurrentLevel();
     }
 
     public void LoadLevel(int levelID)

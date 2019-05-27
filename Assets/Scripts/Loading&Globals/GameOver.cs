@@ -20,6 +20,9 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter()
     {
+        // reset selected plant
+        Globals.Instance.ResetPlantSelection();
+        // a zombie got through the lawn == game over
         Globals.Instance.App.GetComponent<Music>().playEmptyMusic();
         AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, Globals.Instance.sfxVolume);
         losing_wall.GetComponent<BoxCollider>().enabled = false;

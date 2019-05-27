@@ -11,6 +11,11 @@ public class MainController : MonoBehaviour
     void Start()
     {
         // load main menu
+        LoadMenu();
+    }
+
+    public void LoadMenu()
+    {
         GetComponent<Music>().playMainMenuMusic();
         SceneManager.LoadScene("Menu");
     }
@@ -32,6 +37,10 @@ public class MainController : MonoBehaviour
                 // load main scene
                 SceneManager.LoadScene("Main");
                 Debug.Log("loaded level " + levelID);
+                // reset Globals
+                //Globals.Instance.SunScore = 50; // enough to buy initial sunflower
+                Globals.Instance.SunScore = 1000;
+                Globals.Instance.ResetPlantSelection();
             }
         }
         // night level
@@ -40,11 +49,19 @@ public class MainController : MonoBehaviour
         }
     }
 
+    public bool ExistsNextLevel()
+    {
+        return Globals.Instance.currentLevel < levels.Length;
+    }
+
     public void LoadNextLevel()
     {
-        int nextLevel = GetComponent<Globals>().currentLevel + 1;
-        LoadLevel(nextLevel);
-        GetComponent<Globals>().currentLevel = nextLevel;
+        LoadLevel(GetComponent<Globals>().currentLevel + 1);
+    }
+
+    public void RestartCurrentLevel()
+    {
+        LoadLevel(GetComponent<Globals>().currentLevel);
     }
 
     public void QuitGame()

@@ -1,14 +1,18 @@
-+ nicer planter model with BORDER between sun and plants
 + design 2 more day levels
+* pause game
++ last plant (mushroom)
+  * night logic
++ design all night levels (with music)
++ teclat + options
++ options screen
 
 + zombie death animation (rotation)
++ nicer planter model with BORDER between sun and plants
+
 + zombie health bar
-+ win condition
++ planting particles
 
-D night scene
-  D lower light + blue light
-  * last plant (mushroom)
-
+? tank zombie (~bucket or cone)
 
 ? growing night mushroom
 ? zombie head visible and dropping

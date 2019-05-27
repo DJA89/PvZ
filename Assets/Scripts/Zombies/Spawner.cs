@@ -70,6 +70,11 @@ public class Spawner : MonoBehaviour
             foreach (string data in line.Split(','))
             {
                 level[i][j] = float.Parse(data.Trim(), System.Globalization.CultureInfo.InvariantCulture);
+                // if zombie
+                if (j > 0 && level[i][j] > 0)
+                {
+                    Globals.Instance.zombiesLeftInLevel++;
+                }
                 j++;
             }
         }
@@ -98,7 +103,7 @@ public class Spawner : MonoBehaviour
                 if (level[currentLine][j] != 0)
                 {
                     GameObject newZombie = (GameObject) Instantiate(zombies[currentZombie], cells[j-1], transform.rotation, transform);
-                    if (level[currentLine][j] == 3)
+                    if (level[currentLine][j] == 3) // rotate peashooter because it is broken
                     {
                         newZombie.transform.Rotate(new Vector3(0, 90, 0));
                     }
