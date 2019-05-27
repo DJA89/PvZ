@@ -72,6 +72,9 @@ public class Globals : MonoBehaviour {
     internal TextAsset currentLevelFile;
     internal int zombiesLeftInLevel;
 
+    // night or day
+    internal bool isDay;
+
     private void Awake()
     {
         if (Instance == null)
