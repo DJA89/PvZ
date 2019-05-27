@@ -36,6 +36,7 @@ public class SunShroomMakeSun : MonoBehaviour
             int sunAmount;
             if (plantedTime + 120 > Time.time)
             {
+                newSun.transform.GetChild(0).localScale -= new Vector3(1F, 1F, 1F);
                 sunAmount = 15;
             }
             else
