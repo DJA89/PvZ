@@ -36,11 +36,11 @@ public class SunShroomMakeSun : MonoBehaviour
             int sunAmount;
             if (plantedTime + 120 > Time.time)
             {
-                sunAmount = 25;
+                sunAmount = 15;
             }
             else
             {
-                sunAmount = 15;
+                sunAmount = 25;
             }
             newSun.GetComponent<SunVars>().sunAmount = sunAmount;
             float xForce = Random.Range(-100, 100);
