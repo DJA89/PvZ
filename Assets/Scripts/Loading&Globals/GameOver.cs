@@ -14,6 +14,9 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         game_over_panel.SetActive(false);
+        // reset Globals
+        //Globals.Instance.SunScore = 50; // enough to buy initial sunflower
+        Globals.Instance.SunScore = 1000;
         Globals.Instance.zombiesLeftInLevel = 0;
     }
 

@@ -37,9 +37,6 @@ public class MainController : MonoBehaviour
                 // load main scene
                 SceneManager.LoadScene("Main");
                 Debug.Log("loaded level " + levelID);
-                // reset Globals
-                //Globals.Instance.SunScore = 50; // enough to buy initial sunflower
-                Globals.Instance.SunScore = 1000;
                 Globals.Instance.ResetPlantSelection();
             }
         }
