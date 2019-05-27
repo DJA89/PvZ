@@ -50,7 +50,7 @@ public class Globals : MonoBehaviour {
     public GameObject SunIcon { get; set; }
 
     // current music volume
-    [ReadOnlyInInspector] public float _musicVolume = 0.03f;
+    private float _musicVolume = 0.03f;
     public float musicVolume
     {
         get
@@ -65,8 +65,8 @@ public class Globals : MonoBehaviour {
     }
 
     // current SFX volume
-    [ReadOnlyInInspector] public float sfxVolume = 0.3f;
-
+    public float sfxVolume = 0.3f;
+    
     // last played OR currently playing level
     internal int currentLevel = 1;
     internal TextAsset currentLevelFile;
