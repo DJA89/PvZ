@@ -23,26 +23,31 @@ public class MainController : MonoBehaviour
     // load level 1-6
     public void LoadLevel(int levelID)
     {
-        // day level
-        if (1 <= levelID && levelID <= 3)
+        // level file exists
+        if (levelID - 1 < levels.Length)
         {
-            // level file exists
-            if (levelID-1 < levels.Length)
+            // play music
+            if (1 <= levelID && levelID <= 3)
             {
-                // load zombie layout
-                GetComponent<Globals>().currentLevel = levelID;
-                GetComponent<Globals>().currentLevelFile = levels[levelID-1];
-                // play music
+                // day level
                 GetComponent<Music>().playDayLevelMusic();
-                // load main scene
-                SceneManager.LoadScene("Main");
-                Debug.Log("loaded level " + levelID);
-                Globals.Instance.ResetPlantSelection();
             }
-        }
-        // night level
-        else if (4 <= levelID && levelID <= 6)
-        {
+            else if (4 <= levelID && levelID <= 6)
+            {
+                // night level
+                GetComponent<Music>().playNightLevelMusic();
+            }
+
+            // load zombie layout
+            GetComponent<Globals>().currentLevel = levelID;
+            GetComponent<Globals>().currentLevelFile = levels[levelID - 1];
+            // load main scene
+            SceneManager.LoadScene("Main");
+            Debug.Log("loaded level " + levelID);
+            // reset Globals
+            Globals.Instance.SunScore = 50; // enough to buy initial sunflower
+                                            //Globals.Instance.SunScore = 1000;
+            Globals.Instance.ResetPlantSelection();
         }
     }
 

@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6038b56a75bf5914294e918ac35d87fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _musicVolume: 0.03
   sfxVolume: 0.3
 --- !u!114 &8268929
 MonoBehaviour:
@@ -204,5 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 8300000, guid: 815e66f5dcba85243af575e4c444475d, type: 3}
   dayLevelMusic: {fileID: 8300000, guid: 76817b803c6a8d1488503d6840633442, type: 3}
+  nightLevelMusic: {fileID: 8300000, guid: 40037c05aba61b04ea95ea0f47f698b9, type: 3}
   emptyMusic: {fileID: 8300000, guid: 703e626b43ab0428bb40f9a82dbbb8e9, type: 3}
   musicFadeTime: 0.8

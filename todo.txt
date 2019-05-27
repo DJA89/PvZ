@@ -1,7 +1,6 @@
 MUST HAVE
 + last plant (mushroom)
-  * night logic
-+ design final night level (with music)
+  * night logic (sunflower don't make sun)
 + teclat
 
 SHOULD HAVE
