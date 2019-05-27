@@ -3,8 +3,9 @@
 + last plant (mushroom)
   * night logic
 + design all night levels (with music)
-+ teclat + options
++ teclat
 + options screen
++ help screen (OR remove button from options screen)
 
 + zombie death animation (rotation)
 + nicer planter model with BORDER between sun and plants

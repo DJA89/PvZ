@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -67,6 +68,11 @@ public class Music : MonoBehaviour
         }
         lastFader = StartCoroutine(FadeAudio(lastMusic, musicFadeTime, Fade.Out));
         currentFader = StartCoroutine(FadeAudio(currentMusic, musicFadeTime, Fade.In));
+    }
+
+    internal void changeVolume()
+    {
+        currentMusic.volume = Globals.Instance.musicVolume;
     }
 
     private void changeMusic(AudioClip newMusic)

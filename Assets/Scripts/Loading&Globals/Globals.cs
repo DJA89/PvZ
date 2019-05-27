@@ -31,10 +31,10 @@ public class Globals : MonoBehaviour {
             Destroy(Globals.Instance.DraggedObject);
             Globals.Instance.DraggedObject = null;
         }
-    }        
+    }
 
-// get and change sun score
-private int _sunScore;
+    // get and change sun score
+    private int _sunScore;
     public static readonly int MAX_SCORE = 999;
     public int SunScore
     {
@@ -50,7 +50,19 @@ private int _sunScore;
     public GameObject SunIcon { get; set; }
 
     // current music volume
-    [ReadOnlyInInspector] public float musicVolume = 0.03f;
+    [ReadOnlyInInspector] float _musicVolume = 0.03f;
+    public float musicVolume
+    {
+        get
+        {
+            return _musicVolume;
+        }
+        set
+        {
+            _musicVolume = value;
+            GetComponent<Music>().changeVolume();
+        }
+    }
 
     // current SFX volume
     [ReadOnlyInInspector] public float sfxVolume = 0.3f;
