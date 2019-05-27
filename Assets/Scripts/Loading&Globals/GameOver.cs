@@ -14,7 +14,7 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         game_over_panel.SetActive(false);
-
+        Globals.Instance.zombiesLeftInLevel = 0;
     }
 
     // Update is called once per frame
