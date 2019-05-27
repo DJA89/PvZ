@@ -16,6 +16,11 @@ public class DisableEnable : MonoBehaviour
         {
             plant.GetComponent<SunflowerMakeSun>().enabled = false;
         }
+        // disable sunshroom production (if plant does so)
+        if (plant.GetComponent<SunShroomMakeSun>() != null)
+        {
+            plant.GetComponent<SunShroomMakeSun>().enabled = false;
+        }
         // disable animations (if plant has any)
         if (plant.GetComponent<Animator>() != null)
         {
@@ -39,6 +44,11 @@ public class DisableEnable : MonoBehaviour
         if (plant.GetComponent<SunflowerMakeSun>() != null)
         {
             plant.GetComponent<SunflowerMakeSun>().enabled = true;
+        }
+        // enable sunshroom production (if plant does so)
+        if (plant.GetComponent<SunShroomMakeSun>() != null)
+        {
+            plant.GetComponent<SunShroomMakeSun>().enabled = true;
         }
         // enable animations (if plant has any)
         if (plant.GetComponent<Animator>() != null)
