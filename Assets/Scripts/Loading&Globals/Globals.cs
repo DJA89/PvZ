@@ -35,14 +35,15 @@ public class Globals : MonoBehaviour {
     public GameObject SunIcon { get; set; }
 
     // current music volume
-    public float musicVolume = 0.03f;
+    [ReadOnlyInInspector] public float musicVolume = 0.03f;
 
     // current SFX volume
-    public float sfxVolume = 0.3f;
+    [ReadOnlyInInspector] public float sfxVolume = 0.3f;
 
     // currently playing OR last successfully ended level
-    public int currentLevel = 0;
-    public TextAsset currentLevelFile;
+    [HideInInspector] public int currentLevel = 0;
+    [HideInInspector] public TextAsset currentLevelFile;
+    [HideInInspector] public int zombiesLeftInLevel = 0;
 
     private void Awake()
     {

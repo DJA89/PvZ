@@ -98,7 +98,7 @@ public class Spawner : MonoBehaviour
                 if (level[currentLine][j] != 0)
                 {
                     GameObject newZombie = (GameObject) Instantiate(zombies[currentZombie], cells[j-1], transform.rotation, transform);
-                    if (level[currentLine][j] == 3)
+                    if (level[currentLine][j] == 3) // rotate peashooter because it is broken
                     {
                         newZombie.transform.Rotate(new Vector3(0, 90, 0));
                     }
