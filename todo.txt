@@ -1,8 +1,8 @@
-+ win condition
 + design 2 more day levels
+* pause game
 + last plant (mushroom)
   * night logic
-+ design all night levels
++ design all night levels (with music)
 + teclat + options
 + options screen
 

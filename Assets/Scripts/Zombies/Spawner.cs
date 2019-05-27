@@ -70,6 +70,11 @@ public class Spawner : MonoBehaviour
             foreach (string data in line.Split(','))
             {
                 level[i][j] = float.Parse(data.Trim(), System.Globalization.CultureInfo.InvariantCulture);
+                // if zombie
+                if (j > 0 && level[i][j] > 0)
+                {
+                    Globals.Instance.zombiesLeftInLevel++;
+                }
                 j++;
             }
         }
