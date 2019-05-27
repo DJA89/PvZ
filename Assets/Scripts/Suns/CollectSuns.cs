@@ -37,7 +37,7 @@ public class CollectSuns : MonoBehaviour, IPointerClickHandler
         if (collision.transform.gameObject == Globals.Instance.SunIcon)
         {
             // add sun value to sun score
-            Globals.Instance.SunScore += sunValue;
+            Globals.Instance.SunScore += transform.parent.gameObject.GetComponent<SunVars>().sunAmount;
             // remove collected sun (parent of this)
             Destroy(transform.parent.gameObject);
         }

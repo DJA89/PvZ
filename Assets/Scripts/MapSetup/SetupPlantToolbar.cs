@@ -16,6 +16,9 @@ public class SetupPlantToolbar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TextAsset levelFile = Globals.Instance.currentLevelFile;
+        string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
+        Boolean day = lines[0] == "0";
         // store sun icon
         Globals.Instance.SunIcon = sunIcon;
 
@@ -36,7 +39,19 @@ public class SetupPlantToolbar : MonoBehaviour
             // create new plant
             GameObject plantTemplate = toolbarPlantTemplates.transform.GetChild(i).gameObject;
             Vector3 newPlantPosition = transform.position + toParentFrontLeft + cellPositionInGrid + toCellCenter;
-            GameObject newPlant = (GameObject)Instantiate(plantTemplate, newPlantPosition, plantList.transform.rotation, plantList.transform);
+            GameObject newPlant = (GameObject) Instantiate(plantTemplate, newPlantPosition, plantList.transform.rotation, plantList.transform);
+            if (day)
+            {
+                if (newPlant.name == "Plant5SunShroom(Clone)")
+                {
+                    Destroy(newPlant, 0F);
+                    continue;
+                }
+            } else if (newPlant.name == "Plant2Sunflower(Clone)")
+            {
+                Destroy(newPlant, 0F);
+                continue;
+            }
             newPlant.AddComponent<SelectPlant>();
             DisableEnable.Disable(newPlant);
             

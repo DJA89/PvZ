@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f1fa83e10dfa164a8b7d5cb80c7be87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!4 &8268925
 Transform:
   m_ObjectHideFlags: 0
@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6674b344d918aef45bc0d093900a07fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   levels:
   - {fileID: 4900000, guid: 901aceb6ce6c7bd48a7aec61be09b469, type: 3}
   - {fileID: 4900000, guid: 76fe99180a0aaca4caa3d85439fa3801, type: 3}
@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6038b56a75bf5914294e918ac35d87fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   _musicVolume: 0.03
   sfxVolume: 0.3
 --- !u!114 &8268929
@@ -201,8 +201,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc50f939e96d2484593f07e963e208f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   mainMenuMusic: {fileID: 8300000, guid: 815e66f5dcba85243af575e4c444475d, type: 3}
   dayLevelMusic: {fileID: 8300000, guid: 76817b803c6a8d1488503d6840633442, type: 3}
   nightLevelMusic: {fileID: 8300000, guid: 40037c05aba61b04ea95ea0f47f698b9, type: 3}
