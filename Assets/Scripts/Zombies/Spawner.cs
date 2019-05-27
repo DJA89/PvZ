@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour
             cells[i] = cells[i - 1] + cellDiff;
         }
         TextAsset levelFile = Globals.Instance.currentLevelFile;
-        string[] lines = levelFile.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
+        string[] lines = levelFile.ToString().Trim().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
         level = new float[lines.Length - 1][];
 
         i = -2;
