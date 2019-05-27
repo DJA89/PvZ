@@ -1,17 +1,16 @@
-+ design 2 more day levels
-* pause game
+MUST HAVE
 + last plant (mushroom)
-  * night logic
-+ design all night levels (with music)
+  * night logic (sunflower don't make sun)
 + teclat
-+ options screen
-+ help screen (OR remove button from options screen)
 
+SHOULD HAVE
 + zombie death animation (rotation)
-+ nicer planter model with BORDER between sun and plants
 
-+ zombie health bar
+INTERESTING
+* pause game
 + planting particles
++ nicer planter model with BORDER between sun and plants (price tag with sun coin!!)
++ zombie health bar
 
 ? tank zombie (~bucket or cone)
 

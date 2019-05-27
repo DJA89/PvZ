@@ -50,7 +50,7 @@ public class Globals : MonoBehaviour {
     public GameObject SunIcon { get; set; }
 
     // current music volume
-    [ReadOnlyInInspector] float _musicVolume = 0.03f;
+    [ReadOnlyInInspector] public float _musicVolume = 0.03f;
     public float musicVolume
     {
         get

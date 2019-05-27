@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4419549, g: 0.49091595, b: 0.5708601, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -171,7 +171,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 4900000, guid: 53a298528a7023949bb4d976c05690e1, type: 3}
+  - {fileID: 4900000, guid: 901aceb6ce6c7bd48a7aec61be09b469, type: 3}
+  - {fileID: 4900000, guid: 76fe99180a0aaca4caa3d85439fa3801, type: 3}
+  - {fileID: 4900000, guid: 3e12e01fc2c73f247b378557b608a250, type: 3}
+  - {fileID: 4900000, guid: ca5e98fd21875a04f8b35e3f0afd7b62, type: 3}
+  - {fileID: 4900000, guid: 990da4af4d0d89e44ac735366e5254f8, type: 3}
+  - {fileID: 4900000, guid: 8a988db3c4c65a44282044232e03f810, type: 3}
 --- !u!114 &8268927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,11 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6038b56a75bf5914294e918ac35d87fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicVolume: 0.03
+  _musicVolume: 0.03
   sfxVolume: 0.3
-  currentLevel: 0
-  currentLevelFile: {fileID: 0}
-  zombiesLeftInLevel: 0
 --- !u!114 &8268929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,5 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 8300000, guid: 815e66f5dcba85243af575e4c444475d, type: 3}
   dayLevelMusic: {fileID: 8300000, guid: 76817b803c6a8d1488503d6840633442, type: 3}
+  nightLevelMusic: {fileID: 8300000, guid: 40037c05aba61b04ea95ea0f47f698b9, type: 3}
   emptyMusic: {fileID: 8300000, guid: 703e626b43ab0428bb40f9a82dbbb8e9, type: 3}
   musicFadeTime: 0.8

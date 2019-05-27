@@ -7,6 +7,7 @@ public class Music : MonoBehaviour
 {
     public AudioClip mainMenuMusic;
     public AudioClip dayLevelMusic;
+    public AudioClip nightLevelMusic;
     public AudioClip emptyMusic;
     public float musicFadeTime = 0.8F;
 
@@ -35,6 +36,11 @@ public class Music : MonoBehaviour
     public void playDayLevelMusic()
     {
         fadeOutChangeMusic(dayLevelMusic);
+    }
+
+    public void playNightLevelMusic()
+    {
+        fadeOutChangeMusic(nightLevelMusic);
     }
 
     public void playEmptyMusic()
