@@ -61,8 +61,13 @@ public class Spawner : MonoBehaviour
         foreach (string line in lines)
         {
             i++;
-            if (i == -1)
+            if (i == -1) // first line
             {
+                Globals.Instance.isDay = true;
+                if (line.Trim() == "1") //it's night
+                {
+                    Globals.Instance.isDay = false;
+                }
                 continue;
             }
             level[i] = new float[6];

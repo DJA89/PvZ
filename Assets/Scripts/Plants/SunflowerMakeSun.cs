@@ -23,20 +23,26 @@ public class SunflowerMakeSun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!animationStarted && Time.time - lastSpawnTime > spawnPeriod - ANIMATION_OFFSET)
+        if (Globals.Instance.isDay)
         {
-            gameObject.GetComponent<Animator>().SetTrigger("popSun");
-            animationStarted = true;
+            if (!animationStarted && Time.time - lastSpawnTime > spawnPeriod - ANIMATION_OFFSET)
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("popSun");
+                animationStarted = true;
+            }
+            if (Time.time - lastSpawnTime > spawnPeriod)
+            {
+                GameObject newSun = (GameObject)Instantiate(sun, transform.position, transform.rotation, transform.parent);
+                float xForce = Random.Range(-100, 100);
+                float zForce = Random.Range(-100, 100);
+                newSun.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForce, velocity, zForce));
+                lastSpawnTime = Time.time;
+                spawnPeriod = NORMAL_SPAWN_PERIOD;
+                animationStarted = false;
+            }
         }
-        if (Time.time - lastSpawnTime > spawnPeriod)
-        {
-            GameObject newSun = (GameObject)Instantiate(sun, transform.position, transform.rotation, transform.parent);
-            float xForce = Random.Range(-100, 100);
-            float zForce = Random.Range(-100, 100);
-            newSun.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForce, velocity, zForce));
-            lastSpawnTime = Time.time;
-            spawnPeriod = NORMAL_SPAWN_PERIOD;
-            animationStarted = false;
+        else {
+            GetComponent<Animator>().enabled = false;
         }
     }
 }
