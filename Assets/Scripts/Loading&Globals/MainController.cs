@@ -48,6 +48,7 @@ public class MainController : MonoBehaviour
             Globals.Instance.SunScore = 50; // enough to buy initial sunflower
                                             //Globals.Instance.SunScore = 1000;
             Globals.Instance.ResetPlantSelection();
+            Globals.Instance.zombiesLeftInLevel = 0;
         }
     }
 
