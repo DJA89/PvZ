@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3351034712405887698}
   - component: {fileID: 8392690646347569518}
   - component: {fileID: 1174689011545407500}
+  - component: {fileID: 2858852667857591287}
   m_Layer: 11
   m_Name: ZombieHuge
   m_TagString: zombie
@@ -180,6 +181,19 @@ MonoBehaviour:
   damage: 1000
   state: 0
   frozen_frame: 0
+--- !u!65 &2858852667857591287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919431002895075107}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6000061, y: 2.400001, z: 1.400003}
+  m_Center: {x: -0.0000019967556, y: 1.1999996, z: 0.000007480383}
 --- !u!1 &6595055448491324733
 GameObject:
   m_ObjectHideFlags: 0
