@@ -2007,6 +2007,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plant5SunShroom
       objectReference: {fileID: 0}
+    - target: {fileID: 4840941422381758699, guid: c5a15c63d70004053911432d776d483e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
     - target: {fileID: 4840941422382048459, guid: c5a15c63d70004053911432d776d483e,
         type: 3}
       propertyPath: m_LocalPosition.x
